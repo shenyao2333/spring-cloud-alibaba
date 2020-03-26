@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.0.RELEASE</version>
+    </parent>
+
+
+    <groupId>com.sy.cloud</groupId>
+    <artifactId>spring-cloud-alibaba</artifactId>
+    <version>0.0.1</version>
+    <packaging>pom</packaging>
+    <name>Spring Cloud Alibaba</name>
+    <description>Spring Cloud Alibaba</description>
+
+
+    <developers>
+        <developer>
+            <name>shenyao</name>
+            <email>sy91aa@163.com</email>
+        </developer>
+    </developers>
+
+
+    <modules>
+        <module>bus-deperdencies</module>
+        <module>bus-module</module>
+        <module>bus-api</module>
+        <module>server-gateway</module>
+        <module>bus-oss</module>
+        <module>bus-scheduler</module>
+        <module>bus-rocketmq</module>
+        <module>auth-user</module>
+        <module>business</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
+        <project.version>0.0.1</project.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.sy.cloud</groupId>
+                <artifactId>bus-deperdencies</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>
