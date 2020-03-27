@@ -7,24 +7,34 @@ package com.sy.spring.cloud.alibaba.module.web;
  */
 public enum ErrorEnum {
 
+
+    /**
+     * 成功
+     */
+    SUCCEED(RespBean.CodeStatus.OK,"处理成功"),
+
     /**
      * 自定义错误处理
      */
-    SYS(-1,"系统错误"),
+    SYS(RespBean.CodeStatus.SYS,"系统错误"),
 
-    REQUEST(2000,"请求错误"),
+    REQUEST(RespBean.CodeStatus.REQUEST,"请求错误"),
 
-    POWER (3000,"权限不足"),
+    POWER (RespBean.CodeStatus.POWER,"权限不足"),
 
-    DATA (4000,"数据异常"),
+    DATA (RespBean.CodeStatus.DATA,"数据异常"),
 
-    ANOMALY(-1,"系统错误"),
+    ANOMALY(RespBean.CodeStatus.ANOMALY,"未知异常"),
 
-    NET (6000,"网络异常"),
+    NET (RespBean.CodeStatus.NET,"网络异常"),
 
-    EXPIRED(7000,"令牌过期"),
+    EXPIRED(RespBean.CodeStatus.EXPIRED,"令牌过期"),
 
-    EXTERN(8000,"第三方错误")
+    EXTERN(RespBean.CodeStatus.EXTERN,"第三方错误"),
+
+
+
+
     ;
 
 
@@ -34,6 +44,23 @@ public enum ErrorEnum {
 
     ErrorEnum(Integer code, String msg) {
         this.code = code;
+        this.msg = msg;
+    }
+
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
         this.msg = msg;
     }
 }

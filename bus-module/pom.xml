@@ -8,7 +8,6 @@
         <groupId>com.sy.cloud</groupId>
         <artifactId>bus-deperdencies</artifactId>
         <version>0.0.1</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>bus-module</artifactId>
@@ -85,6 +84,15 @@
         </dependency>
 
          <!--api文档swagger生成  status-->
+<!--        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
+        </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
@@ -98,6 +106,23 @@
             <groupId>org.jdom</groupId>
             <artifactId>jdom</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+
 
 
     </dependencies>
