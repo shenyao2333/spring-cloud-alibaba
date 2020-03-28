@@ -27,31 +27,7 @@
         </dependency>
 
 
-        <!--负载均衡 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-        </dependency>
 
-        <!--熔断 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-        </dependency>
-
-
-        <!--声明式接口调用 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-
-        <!--Redis -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
 
         <!--MyBatsi -->
         <dependency>
@@ -77,11 +53,7 @@
             <artifactId>pagehelper</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+
 
          <!--api文档swagger生成  status-->
 <!--        <dependency>
@@ -91,7 +63,6 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.6.1</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
@@ -107,15 +78,6 @@
             <artifactId>jdom</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-        </dependency>
 
 
         <dependency>
@@ -125,6 +87,13 @@
 
 
 
+
+
     </dependencies>
+
+
+    <dependencyManagement>
+
+    </dependencyManagement>
 
 </project>
