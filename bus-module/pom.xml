@@ -8,11 +8,12 @@
         <groupId>com.sy.cloud</groupId>
         <artifactId>bus-deperdencies</artifactId>
         <version>0.0.1</version>
+        <relativePath>../bus-deperdencies/pom.xml</relativePath>
     </parent>
 
     <artifactId>bus-module</artifactId>
     <version>0.0.1</version>
-
+    <packaging>jar</packaging>
     <dependencies>
         <!-- nacos 服务发现 -->
         <dependency>
@@ -26,14 +27,18 @@
             <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
         </dependency>
 
-
-
-
         <!--MyBatsi -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
 
         <!--日志、简化对象属性-->
         <dependency>
@@ -53,13 +58,7 @@
             <artifactId>pagehelper</artifactId>
         </dependency>
 
-
-
-         <!--api文档swagger生成  status-->
-<!--        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-        </dependency>-->
+        <!--API展示 status-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -72,6 +71,8 @@
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>swagger-bootstrap-ui</artifactId>
         </dependency>
+        <!--API展示 end-->
+
 
         <dependency>
             <groupId>org.jdom</groupId>
@@ -79,14 +80,51 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
 
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
+
+        <!--Redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
 
 
     </dependencies>
@@ -95,5 +133,31 @@
     <dependencyManagement>
 
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

@@ -17,9 +17,11 @@
 
     <properties>
         <project.verson>0.0.1</project.verson>
-        <spring-cloud.version>2.2.0.RC2</spring-cloud.version>
+        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+        <spring-cloud-commons.version>2.2.0.RELEASE</spring-cloud-commons.version>
+        <spring-cloud-starter-gateway>2.2.0.RELEASE</spring-cloud-starter-gateway>
         <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
-
+        <spring-boot.version>2.2.0.RELEASE</spring-boot.version>
         <alibaba.fastjson.version>1.2.62</alibaba.fastjson.version>
         <github.pagehelper.version>5.1.10</github.pagehelper.version>
         <lombok.version>1.18.10</lombok.version>
@@ -30,10 +32,42 @@
         <jdom.version>1.1.3</jdom.version>
         <httpclient.version>4.5.10</httpclient.version>
         <clj-http.version>3.9.1</clj-http.version>
+        <jjwt.version>0.9.1</jjwt.version>
 
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-api-gateway-adapter-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-parameter-flow-control</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-zuul-adapter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-spring-cloud-gateway-adapter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-sentinel-datasource</artifactId>
+        </dependency>
 
 
 
@@ -44,10 +78,20 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR3</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
             </dependency>
 
@@ -118,14 +162,27 @@
                 <version>${httpclient.version}</version>
             </dependency>
 
-
-            <!-- sevlet -->
             <dependency>
-                <groupId>clj-http</groupId>
-                <artifactId>clj-http</artifactId>
-                <version>${clj-http.version}</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-commons</artifactId>
+                <version>${spring-cloud-commons.version}</version>
+                <classifier>sources</classifier>
+                <type>java-source</type>
             </dependency>
 
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${spring-cloud-starter-gateway}</version>
+            </dependency>
+
+            <!--token加密JWT-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
 
 
         </dependencies>

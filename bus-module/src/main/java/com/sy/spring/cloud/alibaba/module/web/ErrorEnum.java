@@ -20,7 +20,7 @@ public enum ErrorEnum {
 
     REQUEST(RespBean.CodeStatus.REQUEST,"请求错误"),
 
-    POWER (RespBean.CodeStatus.POWER,"权限不足"),
+    POWER (RespBean.CodeStatus.POWER,"无权访问"),
 
     DATA (RespBean.CodeStatus.DATA,"数据异常"),
 

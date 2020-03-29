@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sy.spring.cloud.alibaba.auth.user.mapper.AuthPermissionMapper">
+  <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.module.domain.auth.AuthPermission">
+    <!--@mbg.generated-->
+    <!--@Table auth_permission-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="enname" jdbcType="VARCHAR" property="enname" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="updated" jdbcType="TIMESTAMP" property="updated" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, parent_id, `name`, enname, url, description, created, updated
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from auth_permission
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthPermission" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into auth_permission (parent_id, `name`, enname,
+      url, description, created,
+      updated)
+    values (#{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{enname,jdbcType=VARCHAR},
+      #{url,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP},
+      #{updated,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthPermission" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into auth_permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="enname != null">
+        enname,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="created != null">
+        created,
+      </if>
+      <if test="updated != null">
+        updated,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="enname != null">
+        #{enname,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null">
+        #{updated,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthPermission">
+    <!--@mbg.generated-->
+    update auth_permission
+    <set>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="enname != null">
+        enname = #{enname,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null">
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null">
+        updated = #{updated,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthPermission">
+    <!--@mbg.generated-->
+    update auth_permission
+    set parent_id = #{parentId,jdbcType=BIGINT},
+      `name` = #{name,jdbcType=VARCHAR},
+      enname = #{enname,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      created = #{created,jdbcType=TIMESTAMP},
+      updated = #{updated,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

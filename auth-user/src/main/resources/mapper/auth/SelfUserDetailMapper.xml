@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sy.spring.cloud.alibaba.auth.user.mapper.SelfUserDetailMapper">
+    <resultMap id="userMap"  type="com.sy.spring.cloud.alibaba.auth.user.surictiy.SelfUserDetails">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <collection   property="authorities" ofType="org.springframework.security.core.authority.SimpleGrantedAuthority">
+            <result column="role_info" property="role"/>
+        </collection>
+    </resultMap>
+
+
+    <select id="userLogin" resultMap="userMap" parameterType="com.sy.spring.cloud.alibaba.auth.user.domain.vo.dto.AuthLoginVo">
+        SELECT
+            u.user_name,
+            u.password,
+            r.enname
+        FROM
+            user_info u
+            LEFT JOIN auth_user_role ur ON ur.user_id = u.id
+            LEFT JOIN auth_role r ON r.id
+        where u.password = #{password,jdbcType=VARCHAR} and (email= #{evidence,jdbcType=VARCHAR} or qq = #{evidence,jdbcType=VARCHAR})
+    </select>
+</mapper>

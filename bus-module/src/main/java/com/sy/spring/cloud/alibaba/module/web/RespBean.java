@@ -171,57 +171,60 @@ public class RespBean<T> implements Serializable {
      * @version v1.0.0
      * @date 2019-07-30 05:02:49
      */
-    static class CodeStatus {
+    public static class CodeStatus {
 
 
         /**
          * 请求成功
          */
-        static final int OK = 0;
+        public static final int OK = 0;
 
         /**
          * 请求失败
          */
-        static final int SYS = -1;
+        public static final int SYS = -1;
 
         /**
          * 请求错误
          */
-        static final int REQUEST = 2000;
+        public static final int REQUEST = 2000;
         //参数校验失败
-        static final int REQUEST_PARAM=2001;
+        public static final int REQUEST_PARAM=2001;
 
 
         /**
          * 权限不足
          */
-        static final int POWER = 3000;
+        public static final int POWER = 3000;
+        public static final int LOG_ERR=3001;
+
+
 
         /**
          * 数据异常
          */
-        static final int DATA = 4000;
+        public static final int DATA = 4000;
 
         /**
          * 未知异常
          */
-        static final int ANOMALY = 5000;
+        public static final int ANOMALY = 5000;
 
         /**
          * 网络异常
          */
-        static final int NET = 6000;
+        public static final int NET = 6000;
 
 
         /**
          * 令牌过期
          */
-        static final int EXPIRED = 7000;
+        public static final int EXPIRED = 7000;
 
         /**
          * 第三方错误
          */
-        static final int EXTERN = 8000;
+        public static final int EXTERN = 8000;
     }
 
 

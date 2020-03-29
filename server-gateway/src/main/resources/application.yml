@@ -1,0 +1,17 @@
+server:
+  port: 9012
+spring:
+  application:
+    name: server-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.97.192.128:8848
+gateway:
+  routes:
+    - id: auth-user
+      uri: lb://auth-user
+      predicates:
+        - Path=/auth-user/**
+      filters:
+        - StripPrefix=1

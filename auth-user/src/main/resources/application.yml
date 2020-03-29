@@ -1,0 +1,7 @@
+server:
+  port: 9014
+spring:
+  profiles:
+    actives: dev
+  application:
+    name: auth-user

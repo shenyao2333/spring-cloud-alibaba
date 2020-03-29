@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sy.spring.cloud.alibaba.auth.user.mapper.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo">
+    <!--@mbg.generated-->
+    <!--@Table user_info-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="photo_url" jdbcType="VARCHAR" property="photoUrl" />
+    <result column="age" jdbcType="VARCHAR" property="age" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="personalized" jdbcType="VARCHAR" property="personalized" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="Country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="county" jdbcType="VARCHAR" property="county" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="status" jdbcType="CHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_name, real_name, qq, wechat, email, mobile, `password`, photo_url, age, 
+    sex, personalized, birthday, create_time, update_time, Country, province, city, county, 
+    address, `status`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into user_info (user_name, real_name, qq, 
+      wechat, email, mobile, 
+      `password`, photo_url, age, 
+      sex, personalized, birthday, 
+      create_time, update_time, Country, 
+      province, city, county, 
+      address, `status`)
+    values (#{userName,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, 
+      #{wechat,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{photoUrl,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=CHAR}, #{personalized,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{country,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{status,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="photoUrl != null">
+        photo_url,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="personalized != null">
+        personalized,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="country != null">
+        Country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="county != null">
+        county,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="photoUrl != null">
+        #{photoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="personalized != null">
+        #{personalized,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo">
+    <!--@mbg.generated-->
+    update user_info
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="photoUrl != null">
+        photo_url = #{photoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="personalized != null">
+        personalized = #{personalized,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="country != null">
+        Country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        county = #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo">
+    <!--@mbg.generated-->
+    update user_info
+    set user_name = #{userName,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      photo_url = #{photoUrl,jdbcType=VARCHAR},
+      age = #{age,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
+      personalized = #{personalized,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      Country = #{country,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      county = #{county,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=CHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
