@@ -1,6 +1,6 @@
 package com.sy.spring.cloud.alibaba.auth.user.service;
 
-import com.sy.spring.cloud.alibaba.auth.user.domain.vo.dto.AuthLoginVo;
+import com.sy.spring.cloud.alibaba.auth.user.domain.dto.AuthLoginVo;
 import com.sy.spring.cloud.alibaba.auth.user.surictiy.SelfUserDetails;
 
 /**

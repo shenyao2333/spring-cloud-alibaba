@@ -24,9 +24,9 @@ import javax.annotation.Resource;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-    @Resource
+   /* @Resource
     private SelfUserDetailsService userDetailsService;
-
+*/
     @Resource
     private SelfAuthenticationEntryPoint selfAuthenticationEntryPoint;
 
@@ -74,8 +74,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/logout")
                 .logoutSuccessHandler(selfAuthenticationEntryPoint)
                 .permitAll();
-        http.rememberMe().rememberMeParameter("remember-me")
-                .userDetailsService(userDetailsService).tokenValiditySeconds(1000);
+       /* http.rememberMe().rememberMeParameter("remember-me")
+                .userDetailsService(userDetailsService).tokenValiditySeconds(1000);*/
 
         //无权限访问
         http.exceptionHandling().accessDeniedHandler(selfAuthenticationEntryPoint);
@@ -100,10 +100,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * @param auth
      * @throws Exception
      */
-    @Override
+   /* @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-    }
+    }*/
 
 
 

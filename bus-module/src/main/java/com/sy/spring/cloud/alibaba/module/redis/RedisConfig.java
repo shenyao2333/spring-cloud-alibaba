@@ -30,14 +30,13 @@ import java.time.Duration;
 @Configuration
 public class RedisConfig extends CachingConfigurerSupport {
 
-    @Resource
-    private RedisConnectionFactory factory;
+
 
     /**
      * 存储对象类型
      */
     @Bean
-    public RedisTemplate<String, Object> redisTemplate() {
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
 
         // key序列化方式
@@ -55,7 +54,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     @Bean
     @ConditionalOnMissingBean
-    public StringRedisTemplate stringRedisTemplate() {
+    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory factory) {
         StringRedisTemplate template = new StringRedisTemplate();
         template.setConnectionFactory(factory);
         return template;
@@ -68,8 +67,7 @@ public class RedisConfig extends CachingConfigurerSupport {
      * @return
      */
     @Bean
-    @Override
-    public CacheManager cacheManager() {
+    public CacheManager cacheManager(RedisConnectionFactory factory) {
         RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
                 // 全局redis缓存过期时间
                 .entryTtl(Duration.ofDays(1))

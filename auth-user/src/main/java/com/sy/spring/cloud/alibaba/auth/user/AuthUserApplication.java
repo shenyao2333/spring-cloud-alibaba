@@ -12,7 +12,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableAsync
-@EnableSwagger2
 @MapperScan(basePackages = "com.sy.spring.cloud.alibaba.auth.user.mapper")
 @ComponentScan(basePackages = {"com.sy.spring.cloud.alibaba.auth.user", "com.sy.spring.cloud.alibaba.module" })
 public class AuthUserApplication {

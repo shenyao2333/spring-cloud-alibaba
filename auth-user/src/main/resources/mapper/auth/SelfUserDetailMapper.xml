@@ -11,7 +11,7 @@
     </resultMap>
 
 
-    <select id="userLogin" resultMap="userMap" parameterType="com.sy.spring.cloud.alibaba.auth.user.domain.vo.dto.AuthLoginVo">
+    <select id="userLogin" resultMap="userMap" parameterType="com.sy.spring.cloud.alibaba.auth.user.domain.dto.AuthLoginVo">
         SELECT
             u.user_name,
             u.password,

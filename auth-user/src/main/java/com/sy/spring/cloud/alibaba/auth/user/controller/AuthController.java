@@ -1,6 +1,7 @@
 package com.sy.spring.cloud.alibaba.auth.user.controller;
 
 
+import com.sy.spring.cloud.alibaba.auth.user.domain.dto.AuthLoginVo;
 import com.sy.spring.cloud.alibaba.module.web.RespBean;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,4 +1,4 @@
-package com.sy.spring.cloud.alibaba.auth.user.domain.vo.dto;
+package com.sy.spring.cloud.alibaba.auth.user.domain.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
