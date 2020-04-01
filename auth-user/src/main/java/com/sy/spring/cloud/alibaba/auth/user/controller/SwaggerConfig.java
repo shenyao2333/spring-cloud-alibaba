@@ -31,8 +31,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("API须知")
-                .description("项目")
+                .title("Java服务端API列表")
+                .description("邮箱：sy91aa@163.com")
                 .termsOfServiceUrl("")
                 .contact(new Contact("sy", "", "sy91aa@163.com"))
                 .version("1.0")
