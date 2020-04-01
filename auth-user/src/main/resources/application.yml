@@ -6,4 +6,8 @@ spring:
     active: dev
   application:
     name: auth-user
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.46:8848
 

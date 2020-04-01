@@ -1,4 +1,3 @@
-/*
 package com.sy.spring.cloud.alibaba.auth.user.controller;
 
 import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
@@ -13,15 +12,11 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-*/
 /**
- * @author ：sy
- * @date ：Created in 2020.3.29 10:47
- * @description: Swagger配置类
- *//*
-
+ * auth:sy
+ * swagger配置类
+ */
 @Configuration
-@EnableSwaggerBootstrapUI
 @EnableSwagger2
 public class SwaggerConfig {
     @Bean
@@ -44,4 +39,3 @@ public class SwaggerConfig {
                 .build();
     }
 }
-*/

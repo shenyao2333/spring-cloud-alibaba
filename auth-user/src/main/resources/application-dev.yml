@@ -1,15 +1,4 @@
 spring:
-  cloud:
-    nacos:
-      core:
-        auth:
-          enabled: true
-      discovery:
-        server-addr: 47.97.192.128:8848
-        username: nacos
-        password: sy1998-+
-      config:
-        namespace: 69c304a0-fd3b-428d-b5af-1aa18167a29d
   main:
     allow-bean-definition-overriding: true
   redis:
