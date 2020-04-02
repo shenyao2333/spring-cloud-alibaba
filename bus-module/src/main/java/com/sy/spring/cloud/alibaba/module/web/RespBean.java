@@ -152,7 +152,7 @@ public class RespBean<T> implements Serializable {
         return new RespBean<T>(CodeStatus.SYS,false,msg,null);
     }
 
-    public static <T> RespBean succeed(T data){
+    public static <T> RespBean<T> succeed   (T data){
         return new RespBean<T>(ErrorEnum.SUCCEED.getCode(),true,ErrorEnum.SUCCEED.getMsg(),data);
     }
 

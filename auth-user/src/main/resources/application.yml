@@ -1,13 +1,14 @@
-server:
-  port: 9014
-
 spring:
-  profiles:
-    active: dev
-  application:
-    name: auth-user
   cloud:
     nacos:
       discovery:
         server-addr: 47.97.192.128:8848
+        metadata:
+          name: authUser
+      config:
+        group: DEFAULT_GROUP
+        prefix: auth-user
+        file-extension: yml
+        server-addr: 47.97.192.128:8848
+       # shared-dataids: redis.yaml,mysql.yaml
 

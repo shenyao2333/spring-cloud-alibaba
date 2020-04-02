@@ -35,7 +35,6 @@ public class XmlUtil {
 		return json;
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static JSONObject iterateElement(Element element) {
 		List<Element> node = element.getChildren();
 		JSONObject obj = new JSONObject();

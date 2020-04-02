@@ -2,12 +2,16 @@ package com.sy.spring.cloud.alibaba.auth.user.controller;
 
 
 import com.sy.spring.cloud.alibaba.auth.user.domain.dto.AuthLoginVo;
+import com.sy.spring.cloud.alibaba.auth.user.service.UserInfoService;
+import com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo;
 import com.sy.spring.cloud.alibaba.module.web.RespBean;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @author ：sy
@@ -20,6 +24,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
 
+    @Resource
+    private UserInfoService userInfoService;
+
+
 
     @PostMapping("/login")
     public RespBean login(@RequestBody AuthLoginVo authLoginVo){
@@ -28,8 +36,9 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public RespBean register(){
-        return null;
+    public RespBean<UserInfo> register(Long i){
+        UserInfo userInfo = userInfoService.selectByPrimaryKey(i);
+        return RespBean.succeed(userInfo);
     }
 
 
