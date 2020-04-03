@@ -3,6 +3,7 @@ package com.sy.spring.cloud.alibaba.auth.user.surictiy;
 import com.alibaba.fastjson.JSON;
 import com.sy.spring.cloud.alibaba.module.redis.RedisUtil;
 import com.sy.spring.cloud.alibaba.module.utils.JwtTokenUtil;
+import com.sy.spring.cloud.alibaba.module.web.GrabException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
@@ -52,8 +53,9 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
         }
+        throw new GrabException(-1,"sdf");
+        //filterChain.doFilter(httpServletRequest, httpServletResponse);
 
-        filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
 }
 

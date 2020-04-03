@@ -4,6 +4,7 @@ package com.sy.spring.cloud.alibaba.auth.user.controller;
 import com.sy.spring.cloud.alibaba.auth.user.domain.dto.AuthLoginVo;
 import com.sy.spring.cloud.alibaba.auth.user.service.UserInfoService;
 import com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo;
+import com.sy.spring.cloud.alibaba.module.web.GrabException;
 import com.sy.spring.cloud.alibaba.module.web.RespBean;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,6 +38,13 @@ public class AuthController {
 
     @PostMapping("/register")
     public RespBean<UserInfo> register(Long i){
+        if (i<0){
+            throw  new GrabException(-99,"错误测试");
+        }
+        if (i>9){
+            String s="23e";
+            long l = Long.parseLong(s);
+        }
         UserInfo userInfo = userInfoService.selectByPrimaryKey(i);
         return RespBean.succeed(userInfo);
     }

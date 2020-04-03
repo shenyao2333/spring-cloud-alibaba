@@ -1,5 +1,7 @@
 package com.sy.spring.cloud.alibaba.module.web;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -7,6 +9,7 @@ import java.io.Serializable;
  * Date: 2020/3/27 11:26
  * @Description 返回对象
  */
+@Data
 public class RespBean<T> implements Serializable {
 
     private static final long serialVersionUID = -1949931234174289546L;

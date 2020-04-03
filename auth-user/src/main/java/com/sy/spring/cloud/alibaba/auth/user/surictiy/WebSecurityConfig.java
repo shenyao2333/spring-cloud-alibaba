@@ -1,5 +1,6 @@
 package com.sy.spring.cloud.alibaba.auth.user.surictiy;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -21,12 +22,13 @@ import javax.annotation.Resource;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@Slf4j
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-   /* @Resource
+    @Resource
     private SelfUserDetailsService userDetailsService;
-*/
+
     @Resource
     private SelfAuthenticationEntryPoint selfAuthenticationEntryPoint;
 
@@ -45,12 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //toke、session,使用swt
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                //.httpBasic().authenticationEntryPoint(selfAuthenticationEntryPoint)
-                //.and()
-                .authorizeRequests()//定义哪些URL需要被保护、哪些不需要被保护
-                .antMatchers("/security/register").hasRole("ADMIN")
-                .antMatchers("/security/test").hasRole("USER")
-                .and()
+
                 .authorizeRequests()
                 //任何请求,登录后可以访问
                 .anyRequest()
@@ -59,26 +56,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
 
 
-
                 //开启登录, 定义当需要用户登录时候，转到的登录页面
-                .formLogin()
+               // .formLogin()
         //        .loginPage("/test/login.html")
         //        .loginProcessingUrl("/login")
                 //登录成功
-                .successHandler(selfAuthenticationEntryPoint)
+               // .successHandler(selfAuthenticationEntryPoint)
                  //登录失败
-                .failureHandler(selfAuthenticationEntryPoint)
+               /* .failureHandler(selfAuthenticationEntryPoint)
                 .permitAll()
-                .and()
+                .and()*/
                 .logout()//默认注销行为为logout
                 .logoutUrl("/logout")
                 .logoutSuccessHandler(selfAuthenticationEntryPoint)
                 .permitAll();
        /* http.rememberMe().rememberMeParameter("remember-me")
                 .userDetailsService(userDetailsService).tokenValiditySeconds(1000);*/
-
         //无权限访问
-        http.exceptionHandling().accessDeniedHandler(selfAuthenticationEntryPoint);
+        /*http.exceptionHandling().accessDeniedHandler(selfAuthenticationEntryPoint);*/
         http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
     }
@@ -91,7 +86,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/**");
+        web.ignoring().antMatchers("/user/**");
     }
 
 
@@ -102,6 +97,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
    /* @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        log.info("---进入拦截--");
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }*/
 
