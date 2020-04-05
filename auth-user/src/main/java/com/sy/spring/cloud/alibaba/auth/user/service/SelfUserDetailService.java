@@ -1,6 +1,9 @@
 package com.sy.spring.cloud.alibaba.auth.user.service;
 
-import com.sy.spring.cloud.alibaba.auth.user.domain.dto.AuthLoginVo;
+import com.sy.spring.cloud.alibaba.auth.user.domain.dto.AuthLoginDto;
+import com.sy.spring.cloud.alibaba.auth.user.domain.dto.RegisterUserDto;
+import com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserLoginVo;
+import com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserVo;
 import com.sy.spring.cloud.alibaba.auth.user.surictiy.SelfUserDetails;
 
 /**
@@ -18,6 +21,35 @@ public interface SelfUserDetailService {
      * @param authLoginVo
      * @return
      */
-    SelfUserDetails userLogin(AuthLoginVo authLoginVo);
+    SelfUserDetails userLogin(AuthLoginDto authLoginVo);
 
+    SelfUserDetails selectByUserName(String username);
+
+    /**
+     * 通过手机验证码登陆
+     * @param mobile
+     * @param code
+     * @return
+     */
+    UserLoginVo userLoginByCode(String mobile, String code);
+
+    /**
+     * 获取手机验证码
+     * @param mobile
+     * @return
+     */
+    void getMobileCode(String mobile);
+
+
+    /**
+     * 用户注册
+     * @param registerUserDto
+     */
+    UserLoginVo register(RegisterUserDto registerUserDto);
+
+    /**
+     * 获取邮箱验证码
+     * @param email
+     */
+    void getEmailCode(String email);
 }

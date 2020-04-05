@@ -20,7 +20,9 @@ public enum ErrorEnum {
 
     REQUEST(RespBean.CodeStatus.REQUEST,"请求错误"),
 
+
     POWER (RespBean.CodeStatus.POWER,"无权访问"),
+
 
     DATA (RespBean.CodeStatus.DATA,"数据异常"),
 
@@ -28,7 +30,14 @@ public enum ErrorEnum {
 
     NET (RespBean.CodeStatus.NET,"网络异常"),
 
-    EXPIRED(RespBean.CodeStatus.EXPIRED,"令牌过期"),
+
+
+    EXPIRED(RespBean.CodeStatus.EXPIRED,"令牌错误"),
+    LONG_ERR(7001,"帐号或密码错误"),
+    CODE_ERR(7002,"验证码错误"),
+    UNREGISTERED_MOBILE(7003,"该手机号未注册"),
+    UNREGISTERED_EMAIL(7003,"该邮箱未注册"),
+
 
     EXTERN(RespBean.CodeStatus.EXTERN,"第三方错误"),
 

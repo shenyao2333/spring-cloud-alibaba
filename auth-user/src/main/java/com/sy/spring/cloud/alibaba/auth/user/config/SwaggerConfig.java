@@ -1,4 +1,4 @@
-package com.sy.spring.cloud.alibaba.auth.user.controller;
+package com.sy.spring.cloud.alibaba.auth.user.config;
 
 import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
 import org.springframework.context.annotation.Bean;

@@ -1,6 +1,6 @@
 package com.sy.spring.cloud.alibaba.auth.user.mapper;
 
-import com.sy.spring.cloud.alibaba.auth.user.domain.dto.AuthLoginVo;
+import com.sy.spring.cloud.alibaba.auth.user.domain.dto.AuthLoginDto;
 import com.sy.spring.cloud.alibaba.auth.user.surictiy.SelfUserDetails;
 
 /**
@@ -11,5 +11,5 @@ import com.sy.spring.cloud.alibaba.auth.user.surictiy.SelfUserDetails;
 public interface SelfUserDetailMapper {
 
 
-    SelfUserDetails userLogin(AuthLoginVo authLoginVo);
+    SelfUserDetails userLogin(AuthLoginDto authLoginVo);
 }

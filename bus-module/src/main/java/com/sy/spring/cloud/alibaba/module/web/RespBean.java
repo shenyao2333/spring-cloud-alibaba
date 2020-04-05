@@ -151,15 +151,19 @@ public class RespBean<T> implements Serializable {
     }
 
 
-    public static <T> RespBean fail(String msg){
+    public static <T> RespBean<T> fail(String msg){
         return new RespBean<T>(CodeStatus.SYS,false,msg,null);
+    }
+
+    public static RespBean succeed(){
+        return new RespBean(ErrorEnum.SUCCEED.getCode(),true,null,null);
     }
 
     public static <T> RespBean<T> succeed   (T data){
         return new RespBean<T>(ErrorEnum.SUCCEED.getCode(),true,ErrorEnum.SUCCEED.getMsg(),data);
     }
 
-    public static <T> RespBean succeed(String msg,T data){
+    public static <T> RespBean<T> succeed(String msg,T data){
         return new RespBean<T>(ErrorEnum.SUCCEED.getCode(),true,msg,data);
     }
 

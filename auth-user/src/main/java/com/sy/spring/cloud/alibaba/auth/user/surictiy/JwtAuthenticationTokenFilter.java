@@ -53,8 +53,8 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
         }
-        throw new GrabException(-1,"sdf");
-        //filterChain.doFilter(httpServletRequest, httpServletResponse);
+        //throw new GrabException(-1,"sdf");
+        filterChain.doFilter(httpServletRequest, httpServletResponse);
 
     }
 }

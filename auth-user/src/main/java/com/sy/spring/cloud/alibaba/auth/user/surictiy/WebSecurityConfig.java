@@ -26,8 +26,6 @@ import javax.annotation.Resource;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-    @Resource
-    private SelfUserDetailsService userDetailsService;
 
     @Resource
     private SelfAuthenticationEntryPoint selfAuthenticationEntryPoint;
@@ -44,38 +42,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         //去掉csrf(跨域请求)
         http.csrf().disable()
-                //toke、session,使用swt
+                //关闭session,使用jwt
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-
-                .authorizeRequests()
-                //任何请求,登录后可以访问
-                .anyRequest()
-                // RBAC 动态 url 认证
-                .access("@rbacauthorityservice.hasPermission(request,authentication)")
-                .and()
-
-
-                //开启登录, 定义当需要用户登录时候，转到的登录页面
-               // .formLogin()
-        //        .loginPage("/test/login.html")
-        //        .loginProcessingUrl("/login")
-                //登录成功
-               // .successHandler(selfAuthenticationEntryPoint)
-                 //登录失败
-               /* .failureHandler(selfAuthenticationEntryPoint)
-                .permitAll()
-                .and()*/
-                .logout()//默认注销行为为logout
-                .logoutUrl("/logout")
-                .logoutSuccessHandler(selfAuthenticationEntryPoint)
-                .permitAll();
-       /* http.rememberMe().rememberMeParameter("remember-me")
-                .userDetailsService(userDetailsService).tokenValiditySeconds(1000);*/
-        //无权限访问
-        /*http.exceptionHandling().accessDeniedHandler(selfAuthenticationEntryPoint);*/
+                .httpBasic().authenticationEntryPoint(selfAuthenticationEntryPoint);
+        http.authorizeRequests().anyRequest().authenticated();
         http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
-
     }
 
 
@@ -86,20 +58,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/user/**");
+        web.ignoring().antMatchers("/userAuth/**","/swagger-ui.html", "/swagger-resources/**", "/v2/api-docs","/doc.html","/favicon.ico","/webjars/*");
     }
-
-
-    /**
-     * 拦截后的操作
-     * @param auth
-     * @throws Exception
-     */
-   /* @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        log.info("---进入拦截--");
-        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-    }*/
 
 
 

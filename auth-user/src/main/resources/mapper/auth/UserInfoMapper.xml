@@ -26,34 +26,50 @@
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="status" jdbcType="CHAR" property="status" />
   </resultMap>
+
+  <resultMap id="UserLogin" type="com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserVo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="photo_url" jdbcType="VARCHAR" property="photoUrl" />
+    <result column="age" jdbcType="VARCHAR" property="age" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="personalized" jdbcType="VARCHAR" property="personalized" />
+  </resultMap>
+
+
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, user_name, real_name, qq, wechat, email, mobile, `password`, photo_url, age, 
-    sex, personalized, birthday, create_time, update_time, Country, province, city, county, 
+    id, user_name, real_name, qq, wechat, email, mobile, `password`, photo_url, age,
+    sex, personalized, birthday, create_time, update_time, Country, province, city, county,
     address, `status`
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from user_info
     where id = #{id,jdbcType=BIGINT}
   </select>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into user_info (user_name, real_name, qq, 
-      wechat, email, mobile, 
-      `password`, photo_url, age, 
-      sex, personalized, birthday, 
-      create_time, update_time, Country, 
-      province, city, county, 
+    insert into user_info (user_name, real_name, qq,
+      wechat, email, mobile,
+      `password`, photo_url, age,
+      sex, personalized, birthday,
+      create_time, update_time, Country,
+      province, city, county,
       address, `status`)
-    values (#{userName,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, 
-      #{wechat,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{photoUrl,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=CHAR}, #{personalized,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{country,jdbcType=VARCHAR}, 
-      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, 
+    values (#{userName,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR},
+      #{wechat,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR},
+      #{password,jdbcType=VARCHAR}, #{photoUrl,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR},
+      #{sex,jdbcType=CHAR}, #{personalized,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP},
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{country,jdbcType=VARCHAR},
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR},
       #{address,jdbcType=VARCHAR}, #{status,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo" useGeneratedKeys="true">
@@ -276,4 +292,46 @@
       `status` = #{status,jdbcType=CHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+
+
+  <select id="userLoginByEvidence" resultMap="UserLogin">
+    select
+    <include refid="Base_Column_List" />
+    from user_info
+    where (email = #{evidence,jdbcType=VARCHAR} or qq = #{evidence,jdbcType=VARCHAR} or mobile = #{evidence,jdbcType=VARCHAR})
+    and password = #{password,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByEmail" resultMap="UserLogin">
+    select
+    <include refid="Base_Column_List" />
+    from user_info
+    where email = #{email,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByMobile" resultMap="UserLogin">
+    select
+    <include refid="Base_Column_List" />
+    from user_info
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </select>
+
+  <select id="checkAcc" resultType="java.lang.String">
+    select id
+    from  user_info
+    <where>
+      <if test="email != null and email != ''">
+        and  email = #{email}
+      </if>
+      <if test="mobile != null and mobile != ''">
+        and mobile = #{mobile}
+      </if>
+      <if test="qq != null and qq != ''">
+        and qq=#{qq}
+      </if>
+    </where>
+  </select>
+
+
 </mapper>

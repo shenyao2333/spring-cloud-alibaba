@@ -22,4 +22,8 @@ public class GrabException extends RuntimeException {
     }
 
 
+    public GrabException(ErrorEnum sys) {
+        this.code = sys.getCode();
+        this.msg = sys.getMsg();
+    }
 }

@@ -1,3 +1,4 @@
+/*
 package com.sy.spring.cloud.alibaba.module.utils;
 
 import com.alibaba.fastjson.JSON;
@@ -15,9 +16,11 @@ import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
+*/
 /**
  *
- */
+ *//*
+
 public class XmlUtil {
 
 	public static JSONObject xml2Json(String xmlStr, String encode) throws JDOMException, IOException {
@@ -74,7 +77,8 @@ public class XmlUtil {
 	}
 
 	public static void main(String[] args) throws Exception {
-		/*String xml = "<?xml version=\"1.0\" encoding=\"gb2312\"?>\r\n" + "<business>\r\n"
+		*/
+/*String xml = "<?xml version=\"1.0\" encoding=\"gb2312\"?>\r\n" + "<business>\r\n"
 				+ "  <REQUEST_COMMON_FPKJ>\r\n" + "    <COMMON_FPKJ_FPT>\r\n" + "      <FPDM>150000000001</FPDM>\r\n"
 				+ "      <FPHM>10011939</FPHM>\r\n" + "      <JQBH>499000102686</JQBH>\r\n"
 				+ "      <KPRQ>2019-07-18</KPRQ>\r\n"
@@ -93,7 +97,8 @@ public class XmlUtil {
 				+ "      </FPMX>\r\n" + "    </COMMON_FPKJ_FPT>\r\n" + "  </REQUEST_COMMON_FPKJ>\r\n"
 				+ "</business>\r\n" + "\r\n" + "";
 		JSONObject json = xml2Json(xml, "gb2312");
-		System.out.println(json.toJSONString());*/
+		System.out.println(json.toJSONString());*//*
+
 
 		String a = "{\r\n" +
 				"    \"business\": {\r\n" +
@@ -157,3 +162,4 @@ public class XmlUtil {
 		System.out.println("====: "+fphm);
 	}
 }
+*/

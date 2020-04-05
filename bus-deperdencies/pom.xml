@@ -33,6 +33,7 @@
         <httpclient.version>4.5.10</httpclient.version>
         <clj-http.version>3.9.1</clj-http.version>
         <jjwt.version>0.9.1</jjwt.version>
+        <mail.version>1.4</mail.version>
 
     </properties>
 
@@ -147,6 +148,12 @@
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>${mail.version}</version>
             </dependency>
 
 

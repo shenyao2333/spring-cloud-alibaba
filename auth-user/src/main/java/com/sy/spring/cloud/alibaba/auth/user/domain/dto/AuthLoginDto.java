@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
@@ -13,15 +14,14 @@ import java.io.Serializable;
  */
 @Data
 @ApiModel("登陆")
-public class AuthLoginVo  implements Serializable {
+public class AuthLoginDto implements Serializable {
 
 
     private static final long serialVersionUID = 436620244711565502L;
 
 
-    @ApiModelProperty(value = "登陆凭证，QQ或者邮箱")
+    @ApiModelProperty(value = "登陆凭证：QQ、手机号或者邮箱, 与手机号两者必传其中一个")
     private String evidence;
-
 
 
     @ApiModelProperty(value = "登陆密码")
