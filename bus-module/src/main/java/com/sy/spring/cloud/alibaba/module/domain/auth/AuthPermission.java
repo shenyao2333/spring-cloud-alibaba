@@ -9,7 +9,7 @@ import lombok.Data;
 /**
     * 权限表
     */
-@ApiModel(value="com-sy-spring-cloud-alibaba-module-domain-auth-AuthPermission")
+@ApiModel(value="AuthPermission")
 @Data
 public class AuthPermission implements Serializable {
 

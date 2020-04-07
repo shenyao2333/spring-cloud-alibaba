@@ -14,11 +14,19 @@
     <artifactId>server-gateway</artifactId>
     <version>0.0.1</version>
 
+
+
     <dependencies>
         <dependency>
             <groupId>com.sy.cloud</groupId>
             <artifactId>bus-module</artifactId>
             <version>${version}</version>
+          <!--  <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>-->
         </dependency>
 
         <dependency>
@@ -28,12 +36,6 @@
         </dependency>
 
 
-<!--
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
--->
 
 
 

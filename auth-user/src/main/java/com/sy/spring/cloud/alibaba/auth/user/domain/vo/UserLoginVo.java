@@ -11,7 +11,6 @@ import java.io.Serializable;
  * @date ：Created in 2020.4.4 17:55
  * @description: 用户登录后返回
  */
-@Data
 @ApiModel("登陆成功")
 public class UserLoginVo implements Serializable {
 
@@ -28,4 +27,27 @@ public class UserLoginVo implements Serializable {
     private Long validTime;
 
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public UserVo getUserVo() {
+        return userVo;
+    }
+
+    public void setUserVo(UserVo userVo) {
+        this.userVo = userVo;
+    }
+
+    public Long getValidTime() {
+        return validTime;
+    }
+
+    public void setValidTime(Long validTime) {
+        this.validTime = validTime;
+    }
 }

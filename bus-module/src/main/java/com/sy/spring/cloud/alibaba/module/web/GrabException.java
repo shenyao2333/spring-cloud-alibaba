@@ -2,6 +2,7 @@ package com.sy.spring.cloud.alibaba.module.web;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 
 /**
  * @author ：sy
@@ -22,8 +23,8 @@ public class GrabException extends RuntimeException {
     }
 
 
-    public GrabException(ErrorEnum sys) {
-        this.code = sys.getCode();
-        this.msg = sys.getMsg();
+    public GrabException(ErrorEnum err) {
+        this.code=err.getCode();
+        this.msg=err.getMsg();
     }
 }

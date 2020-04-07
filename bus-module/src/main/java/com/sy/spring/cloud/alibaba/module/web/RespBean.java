@@ -167,6 +167,9 @@ public class RespBean<T> implements Serializable {
         return new RespBean<T>(ErrorEnum.SUCCEED.getCode(),true,msg,data);
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     /**
      * 通用状态码

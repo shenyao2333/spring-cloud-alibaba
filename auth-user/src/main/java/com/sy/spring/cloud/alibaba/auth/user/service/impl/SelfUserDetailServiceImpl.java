@@ -66,6 +66,7 @@ public class SelfUserDetailServiceImpl implements SelfUserDetailService {
         }
         UserVo user =  userInfoService.selectByMobile(mobile);
         if (user==null){
+
             throw new GrabException(ErrorEnum.UNREGISTERED_EMAIL);
         }
         UserLoginVo userLoginVo = new UserLoginVo();

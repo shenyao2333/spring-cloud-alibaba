@@ -13,7 +13,12 @@
 
     <artifactId>auth-user</artifactId>
     <version>0.0.1</version>
-
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -21,20 +26,7 @@
             <artifactId>bus-module</artifactId>
             <version>${version}</version>
         </dependency>
-
-
-        <!--        <dependency>
-                    <groupId>org.springframework.plugin</groupId>
-                    <artifactId>spring-plugin-core</artifactId>
-                    <version>1.2.0.RELEASE</version>
-                </dependency>-->
-
-
-
-
-
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -56,16 +48,13 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
-            <!-- 跳过单元测试 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <skipTests>true</skipTests>
-                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 

@@ -14,7 +14,6 @@ import java.io.Serializable;
  * @date Created in 2020.4.5 1:17
  * @description 注册用户dto
  */
-@Data
 @ApiModel
 public class RegisterUserDto implements Serializable {
 
@@ -41,4 +40,40 @@ public class RegisterUserDto implements Serializable {
     @ApiModelProperty(value = "邮箱验证码",required = true,example = "2324")
     private String emailCode;
 
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmailCode() {
+        return emailCode;
+    }
+
+    public void setEmailCode(String emailCode) {
+        this.emailCode = emailCode;
+    }
 }

@@ -19,18 +19,18 @@
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from auth_role
     where id = #{id,jdbcType=BIGINT}
   </select>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthRole" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into auth_role (parent_id, `name`, enname, 
-      description, created, updated, 
+    insert into auth_role (parent_id, `name`, enname,
+      description, created, updated,
       `status`)
-    values (#{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{enname,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP}, 
+    values (#{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{enname,jdbcType=VARCHAR},
+      #{description,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP},
       #{status,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthRole" useGeneratedKeys="true">

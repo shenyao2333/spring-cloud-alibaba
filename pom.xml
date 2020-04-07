@@ -21,7 +21,12 @@
     <description>Spring Cloud Alibaba</description>
 
 
-
+    <distributionManagement>
+        <site>
+            <id>website</id>
+            <url>scp://webhost.company.com/www/website</url>
+        </site>
+    </distributionManagement>
 
     <developers>
         <developer>
@@ -31,16 +36,19 @@
     </developers>
 
 
+
+
+
     <modules>
         <module>bus-deperdencies</module>
         <module>bus-module</module>
-        <!--<module>bus-api</module>
+        <module>auth-user</module>
+        <module>bus-api</module>
         <module>server-gateway</module>
         <module>bus-oss</module>
         <module>bus-scheduler</module>
-        <module>bus-rocketmq</module>-->
-        <module>auth-user</module>
-       <!-- <module>business</module>-->
+        <module>bus-rocketmq</module>
+       <module>business</module>
     </modules>
 
     <properties>
@@ -52,10 +60,14 @@
         <!--编码方式-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
+        <spring-boot.version>2.2.0.RELEASE</spring-boot.version>
 
     </properties>
 
+
+    <dependencies>
+
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
@@ -65,8 +77,20 @@
                 <version>${project.version}</version>
                 <type>pom</type>
             </dependency>
+
+
+           <!-- <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>-->
+
         </dependencies>
+
+
+
     </dependencyManagement>
+
 
 
 </project>

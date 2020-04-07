@@ -12,7 +12,6 @@ import java.io.Serializable;
  * @date ：Created in 2020.3.29 21:07
  * @description: 登陆
  */
-@Data
 @ApiModel("登陆")
 public class AuthLoginDto implements Serializable {
 
@@ -36,9 +35,35 @@ public class AuthLoginDto implements Serializable {
 
 
 
+    public String getEvidence() {
+        return evidence;
+    }
 
+    public void setEvidence(String evidence) {
+        this.evidence = evidence;
+    }
 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
+    public String getCode() {
+        return code;
+    }
 
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
 }

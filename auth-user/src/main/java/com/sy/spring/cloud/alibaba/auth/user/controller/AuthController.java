@@ -4,7 +4,6 @@ package com.sy.spring.cloud.alibaba.auth.user.controller;
 import com.sy.spring.cloud.alibaba.auth.user.domain.dto.AuthLoginDto;
 import com.sy.spring.cloud.alibaba.auth.user.domain.dto.RegisterUserDto;
 import com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserLoginVo;
-import com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserVo;
 import com.sy.spring.cloud.alibaba.auth.user.service.SelfUserDetailService;
 import com.sy.spring.cloud.alibaba.auth.user.service.UserInfoService;
 import com.sy.spring.cloud.alibaba.module.utils.StringUtil;
@@ -51,7 +50,7 @@ public class AuthController {
 
 
     @GetMapping("/checkEmail")
-    @ApiOperation(value = "校验手机号、邮箱、QQ是否被注册过",notes = "一个手机号、邮箱、QQ只能绑定一个帐号，所以需要校验是否被注册使用过")
+    @ApiOperation(value = "校验手机号、邮箱、QQ是否被注册过",notes = "一个手机号、邮箱、QQ只能绑定一个帐号，所以需要校验是否被注册使用过,校验哪个传哪个")
     @ApiImplicitParams({
             @ApiImplicitParam(value = "手机号",name = "mobile",paramType="query"),
             @ApiImplicitParam(value = "邮箱",name = "email",paramType="query"),

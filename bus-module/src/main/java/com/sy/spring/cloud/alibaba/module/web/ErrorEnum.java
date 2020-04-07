@@ -1,5 +1,7 @@
 package com.sy.spring.cloud.alibaba.module.web;
 
+import lombok.Data;
+
 /**
  * @author ：sy
  * @date ：Created in 2020.3.26 21:53
@@ -55,7 +57,6 @@ public enum ErrorEnum {
         this.code = code;
         this.msg = msg;
     }
-
 
     public Integer getCode() {
         return code;

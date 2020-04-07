@@ -24,7 +24,7 @@
         <spring-boot.version>2.2.0.RELEASE</spring-boot.version>
         <alibaba.fastjson.version>1.2.62</alibaba.fastjson.version>
         <github.pagehelper.version>5.1.10</github.pagehelper.version>
-        <lombok.version>1.18.10</lombok.version>
+        <lombok.version>1.18.8</lombok.version>
         <org.mybatis.version>2.1.1</org.mybatis.version>
         <swagger-springfox.version>2.6.1</swagger-springfox.version>
         <swagger-ui.version>2.6.1</swagger-ui.version>
