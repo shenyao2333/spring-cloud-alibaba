@@ -15,24 +15,37 @@
     <version>0.0.1</version>
 
 
-
     <dependencies>
         <dependency>
             <groupId>com.sy.cloud</groupId>
             <artifactId>bus-module</artifactId>
-            <version>${version}</version>
-          <!--  <exclusions>
+            <version>${version}</version><exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-web</artifactId>
                 </exclusion>
-            </exclusions>-->
+            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>com.sy.cloud</groupId>
             <artifactId>bus-deperdencies</artifactId>
             <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <version>${spring-cloud-starter-gateway}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
         </dependency>
 
 

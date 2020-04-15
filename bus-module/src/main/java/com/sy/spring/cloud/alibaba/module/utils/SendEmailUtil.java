@@ -52,8 +52,12 @@ public class SendEmailUtil {
      */
     public static boolean sendMail(String to, String title , String text) {
         Properties props = new Properties();
-        props.put("mail.smtp.host", mailHost);
-        props.put("mail.smtp.auth", "true");
+        props.setProperty("mail.smtp.host", mailHost);
+        props.setProperty("mail.smtp.auth", "true");
+        props.setProperty("mail.smtp.port", "465");
+        props.setProperty("mail.smtp.socketFactory.port", "465");
+        props.setProperty("mail.smtp.socketFactory.fallback", "false");
+        props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         Session session = Session.getDefaultInstance(props);
         MimeMessage message = new MimeMessage(session);
         try {

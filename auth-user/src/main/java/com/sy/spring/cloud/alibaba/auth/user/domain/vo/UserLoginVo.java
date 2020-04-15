@@ -12,6 +12,7 @@ import java.io.Serializable;
  * @description: 用户登录后返回
  */
 @ApiModel("登陆成功")
+@Data
 public class UserLoginVo implements Serializable {
 
     private static final long serialVersionUID = 1013200628976912905L;
@@ -27,27 +28,4 @@ public class UserLoginVo implements Serializable {
     private Long validTime;
 
 
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public UserVo getUserVo() {
-        return userVo;
-    }
-
-    public void setUserVo(UserVo userVo) {
-        this.userVo = userVo;
-    }
-
-    public Long getValidTime() {
-        return validTime;
-    }
-
-    public void setValidTime(Long validTime) {
-        this.validTime = validTime;
-    }
 }

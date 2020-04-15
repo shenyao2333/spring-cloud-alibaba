@@ -15,6 +15,7 @@ import java.io.Serializable;
  * @description 注册用户dto
  */
 @ApiModel
+@Data
 public class RegisterUserDto implements Serializable {
 
     private static final long serialVersionUID = 2765589263616205597L;
@@ -41,39 +42,4 @@ public class RegisterUserDto implements Serializable {
     private String emailCode;
 
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmailCode() {
-        return emailCode;
-    }
-
-    public void setEmailCode(String emailCode) {
-        this.emailCode = emailCode;
-    }
 }

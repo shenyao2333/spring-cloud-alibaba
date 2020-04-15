@@ -1,4 +1,4 @@
-package com.sy.spring.cloud.alibaba.gateway;
+package com.sy.spring.cloud.alibaba.gateway.config;
 
 import org.assertj.core.util.Lists;
 
