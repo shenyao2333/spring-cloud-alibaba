@@ -11,9 +11,9 @@ spring:
           # Predicate 翻译过来是“谓词”的意思，必须，主要作用是匹配用户的请求，有很多种用法
           predicates:
             # Method 方法谓词，这里是匹配 GET 和 POST 请求
-            - Method=GET,POST
+            - Method: GET,POST
           filters:
-            - StripPrefix=1
+            - StripPrefix: 1
 # 目前无效
 feign:
   sentinel:
