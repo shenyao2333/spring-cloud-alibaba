@@ -1,3 +1,4 @@
+/*
 package com.sy.spring.cloud.alibaba.gateway.config;
 
 import org.assertj.core.util.Lists;
@@ -7,11 +8,13 @@ import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 
 import java.util.List;
 
+*/
 /**
  * @author sy
  * @date Created in 2020.4.6 16:10
  * @description
- */
+ *//*
+
 public class swaggerconfig implements SwaggerResourcesProvider {
 
 
@@ -40,3 +43,4 @@ public class swaggerconfig implements SwaggerResourcesProvider {
 
 
 }
+*/

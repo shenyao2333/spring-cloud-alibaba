@@ -1,4 +1,4 @@
-package com.sy.spring.cloud.alibaba.gateway.surictiy;
+package com.sy.spring.cloud.alibaba.gateway.serictiy;
 
 import com.alibaba.fastjson.JSONObject;
 import com.sy.spring.cloud.alibaba.module.redis.RedisUtil;

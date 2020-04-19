@@ -1,4 +1,4 @@
-package com.sy.spring.cloud.alibaba.gateway.surictiy;
+package com.sy.spring.cloud.alibaba.gateway.serictiy;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
@@ -56,9 +56,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers( "/v2/api-docs","/doc.html","/favicon.ico","/webjars/**","test/**",  "auth-user/**");
+        /*web.ignoring().antMatchers( "/v2/api-docs","/doc.html","/favicon.ico","/webjars/**","test/**",  "auth-user/**");*/
+        web.ignoring().antMatchers( "/**/**");
     }
-
 
 
 

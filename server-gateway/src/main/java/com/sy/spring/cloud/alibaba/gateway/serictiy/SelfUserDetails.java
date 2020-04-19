@@ -1,4 +1,4 @@
-package com.sy.spring.cloud.alibaba.gateway.surictiy;
+package com.sy.spring.cloud.alibaba.gateway.serictiy;
 
 import com.sy.spring.cloud.alibaba.module.domain.auth.AuthRole;
 import io.swagger.annotations.ApiModelProperty;
