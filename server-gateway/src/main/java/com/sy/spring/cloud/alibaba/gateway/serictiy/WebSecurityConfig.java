@@ -57,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) {
         /*web.ignoring().antMatchers( "/v2/api-docs","/doc.html","/favicon.ico","/webjars/**","test/**",  "auth-user/**");*/
-        web.ignoring().antMatchers( "/**/**");
+        web.ignoring().antMatchers( "/test/**","/auth-user/**","/**/**");
     }
 
 

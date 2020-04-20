@@ -16,7 +16,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableCaching
 @SpringBootApplication
 @EnableDiscoveryClient
-@ComponentScan(basePackages = {"com.sy.spring.cloud.alibaba.gateway", "com.sy.spring.cloud.alibaba.module"})
+@ComponentScan(basePackages = {"com.sy.spring.cloud.alibaba.gateway", "com.sy.spring.cloud.alibaba.module" })
 @EnableAsync
 @EnableFeignClients
 public class ServerGateWayApplication {
