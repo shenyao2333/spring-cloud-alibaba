@@ -19,10 +19,9 @@ public interface UserInfoMapper {
      * 用户根据帐号密码登陆
      *
      * @param evidence
-     * @param password
      * @return
      */
-    UserVo userLoginByEvidence(@Param("evidence") String evidence, @Param("password") String password);
+    UserInfo userLoginByEvidence(@Param("evidence") String evidence);
 
     /**
      * 使用邮箱查找用户

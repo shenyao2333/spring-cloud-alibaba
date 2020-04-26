@@ -36,7 +36,7 @@ public class AuthController {
     @ApiOperation(value = "用户登陆",notes = "有两种方式： 1、使用帐号（邮箱或手机后）密码，2、使用手机号和验证码")
     public RespBean<UserLoginVo> login(@RequestBody AuthLoginDto authLoginVo){
         UserLoginVo userLoginVo ;
-        if (!"".equals(authLoginVo.getMobile())){
+        if (!"".equals(authLoginVo.getMobile())&&authLoginVo.getMobile()!=null){
             if("".equals(authLoginVo.getCode())){
                 return RespBean.fail("请求输入验证码");
             }

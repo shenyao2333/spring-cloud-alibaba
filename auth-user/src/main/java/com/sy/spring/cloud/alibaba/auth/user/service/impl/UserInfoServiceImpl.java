@@ -9,6 +9,8 @@ import com.sy.spring.cloud.alibaba.module.utils.JwtTokenUtil;
 import com.sy.spring.cloud.alibaba.module.web.ErrorEnum;
 import com.sy.spring.cloud.alibaba.module.web.GrabException;
 import com.sy.spring.cloud.alibaba.module.web.RespBean;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
@@ -16,6 +18,7 @@ import com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo;
 import com.sy.spring.cloud.alibaba.auth.user.mapper.UserInfoMapper;
 import com.sy.spring.cloud.alibaba.auth.user.service.UserInfoService;
 @Service
+@Slf4j
 public class UserInfoServiceImpl implements UserInfoService{
 
     @Resource
@@ -57,12 +60,20 @@ public class UserInfoServiceImpl implements UserInfoService{
     @Override
     public UserLoginVo userLoginByEvidence(AuthLoginDto authLoginVo) {
         if ("".equals(authLoginVo.getEvidence())|| "".equals(authLoginVo.getPassword())){
-            throw new GrabException(RespBean.CodeStatus.REQUEST,"请求输入帐号密码");
+            throw new GrabException(RespBean.CodeStatus.REQUEST,"请求输入帐号或密码");
         }
-        authLoginVo.setPassword(new BCryptPasswordEncoder().encode(authLoginVo.getPassword()));
-        UserVo userVo = userInfoMapper.userLoginByEvidence(authLoginVo.getEvidence(), authLoginVo.getPassword());
-        if (userVo!=null){
+
+        UserInfo user = userInfoMapper.userLoginByEvidence(authLoginVo.getEvidence());
+        BCryptPasswordEncoder bcryptPasswordEncoder =new BCryptPasswordEncoder();
+
+
+        if (user!=null){
+            if (!bcryptPasswordEncoder .matches(authLoginVo.getPassword(),user.getPassword())){
+                throw new GrabException(ErrorEnum.LONG_ERR);
+            }
             UserLoginVo userLoginVo = new UserLoginVo();
+            UserVo userVo = new UserVo();
+            BeanUtils.copyProperties(user,userVo);
             String token = JwtTokenUtil.createToken(userVo.getUserName());
             userLoginVo.setToken(token);
             userLoginVo.setUserVo(userVo);
@@ -89,5 +100,7 @@ public class UserInfoServiceImpl implements UserInfoService{
     public String checkAcc(String mobile, String email, String qq) {
         return userInfoMapper.checkAcc(mobile,email,qq);
     }
+
+
 
 }

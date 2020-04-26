@@ -1,4 +1,4 @@
-package com.sy.spring.cloud.alibaba.auth.user.surictiy;
+package com.sy.spring.cloud.alibaba.business.social.surictiy;
 
 import com.alibaba.fastjson.JSON;
 import com.sy.spring.cloud.alibaba.module.redis.RedisUtil;
@@ -45,7 +45,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
                 userDetails.setUserName(username);
                 if (hget.get("roles")!=null){
                     List<GrantedAuthority> roles = JSON.parseArray(hget.get("roles").toString(), GrantedAuthority.class);
-                    userDetails.setAuthorities(new HashSet<>(roles));
+                    userDetails.setAuthorities(new HashSet(roles));
                 }
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails,null, userDetails.getAuthorities());
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));

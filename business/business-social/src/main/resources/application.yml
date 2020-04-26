@@ -1,0 +1,15 @@
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 47.97.192.128:8848
+#        metadata:
+#          name: authUser
+#      config:
+#        server-addr: 47.97.192.128:8848
+#        group: DEFAULT_GROUP
+#        prefix: auth-user
+#        file-extension: yaml
+#
+#       # shared-dataids: redis.yaml,mysql.yaml
+

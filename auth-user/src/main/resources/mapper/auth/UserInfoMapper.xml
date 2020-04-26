@@ -295,12 +295,11 @@
 
 
 
-  <select id="userLoginByEvidence" resultMap="UserLogin">
+  <select id="userLoginByEvidence" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from user_info
-    where (email = #{evidence,jdbcType=VARCHAR} or qq = #{evidence,jdbcType=VARCHAR} or mobile = #{evidence,jdbcType=VARCHAR})
-    and password = #{password,jdbcType=VARCHAR}
+    from user_info where
+     email = #{evidence,jdbcType=VARCHAR} or qq = #{evidence,jdbcType=VARCHAR} or mobile = #{evidence,jdbcType=VARCHAR}
   </select>
 
   <select id="selectByEmail" resultMap="UserLogin">

@@ -14,5 +14,19 @@
     <artifactId>business</artifactId>
     <version>0.0.1</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.sy.cloud</groupId>
+            <artifactId>bus-module</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+    </dependencies>
+
+
+
+    <modules>
+        <module>business-goods</module>
+        <module>business-social</module>
+    </modules>
 
 </project>

@@ -26,10 +26,11 @@ public class GlobalExceptionHandler  {
     public <T> RespBean serviceException(MethodArgumentNotValidException ex) {
         //获取参数校验错误集合
         List<FieldError> bindingResult = ex.getBindingResult().getFieldErrors();
-        StringBuffer errorMessage = new StringBuffer();
+        StringBuilder errorMessage = new StringBuilder();
         for (FieldError fieldError : bindingResult) {
-            errorMessage.append(fieldError.getDefaultMessage()) ;
+            errorMessage.append(fieldError.getDefaultMessage()).append(";") ;
         }
+        errorMessage.substring(errorMessage.length()-1);
         return new  RespBean<T>(RespBean.CodeStatus.REQUEST_PARAM,false,errorMessage.toString(),null);
     }
 
@@ -97,15 +98,6 @@ public class GlobalExceptionHandler  {
         e.printStackTrace();
         return RespBean.fail(ErrorEnum.SYS);
     }
-
-
-
-
-
-
-
-
-
 
 
 
