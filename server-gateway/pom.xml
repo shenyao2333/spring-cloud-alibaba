@@ -100,11 +100,11 @@
             <version>3.0.0-SNAPSHOT</version>
         </dependency>
 
-        <dependency>
+<!--        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>4.2.8.RELEASE</version>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
 
