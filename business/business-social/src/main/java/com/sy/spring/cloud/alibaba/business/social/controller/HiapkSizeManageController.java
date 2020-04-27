@@ -37,7 +37,7 @@ public class HiapkSizeManageController {
     @PostMapping("updateColourById")
     @ApiOperation(value = "修改壁纸色系信息",notes = "根据主键id修改信息")
     public RespBean updateColourById(@RequestBody HiapkSize hiapkSize){
-        if (hiapkSize.getId()==null||"".equals(hiapkSize.getId())){
+        if (hiapkSize.getId()==null||0==(hiapkSize.getId())){
             return RespBean.fail(RespBean.CodeStatus.REQUEST,"修改主键id不能为空");
         }
         hiapkSizeService.updateById(hiapkSize);

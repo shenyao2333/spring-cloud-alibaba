@@ -1,10 +1,14 @@
 package com.sy.spring.cloud.alibaba.business.social.controller;
 
+import com.sy.spring.cloud.alibaba.business.social.service.SocialImgService;
 import com.sy.spring.cloud.alibaba.module.web.RespBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import java.io.File;
 
 /**
  * @author sy
@@ -17,9 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class HiapkManageController  {
 
 
+    @Resource
+    private SocialImgService socialImgService;
+
 
     @ApiOperation(value = "上传图片")
-    public RespBean uploadImg(){
+    public RespBean uploadImg(File file){
         return null;
     }
 

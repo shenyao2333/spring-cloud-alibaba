@@ -17,6 +17,13 @@ public class UploadFileUtil {
 
     static String url = "C:\\Users\\my\\Pictures\\Camera Roll\\default.jpg";
 
+
+    static String endpoint = "oss-accelerate.aliyuncs.com";
+    static String accessKeyId = "LTAI4GL6UzaiiV7gsJcafTgK";
+    static String accessKeySecret = "PXWhibqBdS6yh9WYz4wmKnmtK8mnKj";
+
+
+
     public static void main(String[] args) throws Exception {
         long l1 = System.currentTimeMillis();
 
@@ -34,13 +41,13 @@ public class UploadFileUtil {
     }
 
 
-    public static String  tset(){
-        File file = new File(url);
-        String endpoint = "oss-accelerate.aliyuncs.com";
-        String accessKeyId = "LTAI4GL6UzaiiV7gsJcafTgK";
-        String accessKeySecret = "PXWhibqBdS6yh9WYz4wmKnmtK8mnKj";
+    public static String  tset(File file){
+
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+
+
         ossClient.putObject("social-image", "asdf.jpg", file);
+
         URL url = ossClient.generatePresignedUrl("social-image", "asdf.jpg", new Date(System.currentTimeMillis() + 360000L * 1000));
         // 上传字符串。
         // 关闭OSSClient。
@@ -79,5 +86,10 @@ public class UploadFileUtil {
         System.out.println(url.toString());
         return url.toString();
     }
+
+
+
+
+
 
 }
