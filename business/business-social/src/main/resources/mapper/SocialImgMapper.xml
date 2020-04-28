@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sy.spring.cloud.alibaba.business.social.mapper.SocialImgMapper">
+  <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.business.social.domain.SocialImg">
+    <!--@mbg.generated-->
+    <!--@Table social_img-->
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="type_id" jdbcType="BIGINT" property="typeId" />
+    <result column="colour_id" jdbcType="BIGINT" property="colourId" />
+    <result column="size_id" jdbcType="BIGINT" property="sizeId" />
+    <result column="msg" jdbcType="VARCHAR" property="msg" />
+    <result column="describe" jdbcType="VARCHAR" property="describe" />
+    <result column="charge" jdbcType="CHAR" property="charge" />
+    <result column="reduce_integral" jdbcType="INTEGER" property="reduceIntegral" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="user_id" jdbcType="CHAR" property="userId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, url, type_id, colour_id, size_id, msg, `describe`, charge, reduce_integral, `status`, 
+    user_id
+  </sql>
+  <insert id="insert" parameterType="com.sy.spring.cloud.alibaba.business.social.domain.SocialImg">
+    <!--@mbg.generated-->
+    insert into social_img (id, url, type_id, 
+      colour_id, size_id, msg, 
+      `describe`, charge, reduce_integral, 
+      `status`, user_id)
+    values (#{id,jdbcType=BIGINT}, #{url,jdbcType=VARCHAR}, #{typeId,jdbcType=BIGINT}, 
+      #{colourId,jdbcType=BIGINT}, #{sizeId,jdbcType=BIGINT}, #{msg,jdbcType=VARCHAR}, 
+      #{describe,jdbcType=VARCHAR}, #{charge,jdbcType=CHAR}, #{reduceIntegral,jdbcType=INTEGER}, 
+      #{status,jdbcType=CHAR}, #{userId,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sy.spring.cloud.alibaba.business.social.domain.SocialImg">
+    <!--@mbg.generated-->
+    insert into social_img
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="colourId != null">
+        colour_id,
+      </if>
+      <if test="sizeId != null">
+        size_id,
+      </if>
+      <if test="msg != null">
+        msg,
+      </if>
+      <if test="describe != null">
+        `describe`,
+      </if>
+      <if test="charge != null">
+        charge,
+      </if>
+      <if test="reduceIntegral != null">
+        reduce_integral,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=BIGINT},
+      </if>
+      <if test="colourId != null">
+        #{colourId,jdbcType=BIGINT},
+      </if>
+      <if test="sizeId != null">
+        #{sizeId,jdbcType=BIGINT},
+      </if>
+      <if test="msg != null">
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null">
+        #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="charge != null">
+        #{charge,jdbcType=CHAR},
+      </if>
+      <if test="reduceIntegral != null">
+        #{reduceIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
