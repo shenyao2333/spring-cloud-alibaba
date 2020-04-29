@@ -5,7 +5,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import lombok.Data;
 
-@ApiModel(value="com-sy-spring-cloud-alibaba-business-social-domain-SocialImg")
+import javax.validation.constraints.NotBlank;
+
+@ApiModel(value="SocialImg")
 @Data
 public class SocialImg implements Serializable {
     /**
@@ -18,11 +20,13 @@ public class SocialImg implements Serializable {
     * 图片地址
     */
     @ApiModelProperty(value="图片地址")
+    @NotBlank(message = "请求输入图片路径")
     private String url;
 
     /**
     * 类型ID
     */
+    @NotBlank(message = "请选择图片类型")
     @ApiModelProperty(value="类型ID")
     private Long typeId;
 
@@ -38,15 +42,16 @@ public class SocialImg implements Serializable {
     @ApiModelProperty(value="尺寸ID")
     private Long sizeId;
 
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="描述")
     private String msg;
 
-    @ApiModelProperty(value="")
+    @ApiModelProperty(value="备注")
     private String describe;
 
     /**
     * 下载类型: 0/免费   1/积分下载
     */
+    @NotBlank(message = "请求设置图片下载类型")
     @ApiModelProperty(value="下载类型: 0/免费   1/积分下载")
     private String charge;
 
@@ -65,7 +70,7 @@ public class SocialImg implements Serializable {
     /**
     * 图片所有人
     */
-    @ApiModelProperty(value="图片所有人")
+    @ApiModelProperty(value="图片所有人的id")
     private String userId;
 
     private static final long serialVersionUID = 1L;

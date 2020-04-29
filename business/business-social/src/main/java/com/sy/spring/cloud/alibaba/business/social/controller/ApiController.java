@@ -4,6 +4,7 @@ import com.sy.spring.cloud.alibaba.business.social.service.ApiService;
 import com.sy.spring.cloud.alibaba.module.utils.UploadFileUtil;
 import com.sy.spring.cloud.alibaba.module.web.RespBean;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,11 +28,20 @@ public class ApiController {
 
 
     @GetMapping("/test")
+    @ApiOperation(value = "文件上传,返回图片路径")
     public RespBean uploadFile(MultipartFile file){
-        String s = UploadFileUtil.uploadImg2Oss(file);
-        System.out.println(s);
-        return null;
+        String s = UploadFileUtil.upload(file);
+        return RespBean.succeed(s);
     }
+
+
+
+
+
+
+
+
+
 
 
 

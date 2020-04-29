@@ -18,7 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableAsync
-@MapperScan(basePackages = "com.sy.spring.cloud.alibaba.auth.user.mapper")
+@MapperScan(basePackages = "com.sy.spring.cloud.alibaba.business.social.mapper")
 @ComponentScan(basePackages = {"com.sy.spring.cloud.alibaba.business.social", "com.sy.spring.cloud.alibaba.module" })
 @EnableCaching
 public class BusinessSocialApplication {
