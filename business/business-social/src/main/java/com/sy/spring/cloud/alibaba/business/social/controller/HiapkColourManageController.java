@@ -26,9 +26,15 @@ public class HiapkColourManageController {
     @Resource
     private HiapkColourService hiapkColourService;
 
-    @PostMapping("getHiapkColours")
-    @ApiOperation(value = "获取壁纸色系列表",notes = "可根据条件查询，传什么值就以该值做条件查询")
-    public RespBean<List<HiapkColour>> getHiapk(@RequestBody(required = false) HiapkColour hiapkColour){
+
+    @GetMapping("/getHiapks")
+    public RespBean<List<HiapkColour>> getHiapk(){
+        return RespBean.succeed(hiapkColourService.select());
+    }
+
+    @PostMapping("getHiapksByParam")
+    @ApiOperation(value = "根据参数查询色系列表",notes = "可根据条件查询，传什么值就以该值做条件查询")
+    public RespBean<List<HiapkColour>> getHiapksByParam(@RequestBody(required = false) HiapkColour hiapkColour){
         List<HiapkColour> hiapkColours = hiapkColourService.selectByAll(hiapkColour);
         return RespBean.succeed(hiapkColours);
     }

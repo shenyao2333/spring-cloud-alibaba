@@ -9,10 +9,12 @@
         <groupId>com.sy.cloud</groupId>
         <artifactId>business</artifactId>
         <version>0.0.1</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>business-social</artifactId>
     <version>0.0.1</version>
+    <packaging>jar</packaging>
 
 
     <dependencies>
@@ -52,6 +54,14 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
                 </configuration>
             </plugin>
         </plugins>

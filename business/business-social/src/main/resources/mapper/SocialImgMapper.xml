@@ -16,6 +16,18 @@
     <result column="status" jdbcType="CHAR" property="status" />
     <result column="user_id" jdbcType="CHAR" property="userId" />
   </resultMap>
+
+  <resultMap id="GetImgVo" type="com.sy.spring.cloud.alibaba.business.social.domain.vo.SocialImgVo" extends="BaseResultMap">
+    <result column="type_id" jdbcType="BIGINT" property="typeId" />
+    <result column="type_name" jdbcType="BIGINT" property="typeName" />
+    <result column="type_parent_id" jdbcType="BIGINT" property="typeParentId" />
+    <result column="type_parent_name" jdbcType="VARCHAR" property="typeParentName" />
+    <result column="size" jdbcType="VARCHAR" property="size" />
+    <result column="colour" jdbcType="VARCHAR" property="colour" />
+    <result column="colour_number" jdbcType="VARCHAR" property="colourNumber" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="photo_url" jdbcType="VARCHAR" property="photoUrl" />
+  </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     id, url, type_id, colour_id, size_id, msg, `describe`, charge, reduce_integral, `status`,
@@ -121,5 +133,64 @@
     <include refid="Base_Column_List"/>
     from social_img
     where id=#{id,jdbcType=BIGINT} limit 1
+  </select>
+
+
+  <select id="getHiapkListByParam" resultMap="GetImgVo">
+          SELECT
+        	si.*,
+        	st.id type_id,
+        	st.NAME type_name,
+        	st2.id type_parent_id,
+        	st2.NAME type_parent_name,
+        	sz.size size,
+        	sc.colour colour,
+        	sc.colour_number colour_number,
+        	ui.user_name user_name,
+        	ui.photo_url photo_url
+        FROM
+        	social_img si
+        	LEFT JOIN social_hiapk_type st ON si.type_id = st.id
+        	LEFT JOIN social_hiapk_type st2 ON st2.id = st.parent_id
+        	LEFT JOIN social_hiapk_size sz ON si.size_id = sz.id
+        	LEFT JOIN social_hiapk_colour sc ON si.colour_id = sc.id
+        	LEFT JOIN user_info ui ON si.user_id = ui.id
+        where
+            st2.status=1 and st.status = 1 and ui.status =1
+            <if test="status == null">
+              and  si.status != 5
+            </if>
+            <if test="status != null">
+              and si.status == #{status,jdbcType=VARCHAR}
+            </if>
+            <if test=" userId != null">
+              and si.ui == #{userId,jdbcType=VARCHAR}
+            </if>
+            <if test="charge != null">
+              and si.charge == #{charge,jdbcType=VARCHAR}
+            </if>
+            <if test="typeId != null">
+              and st.typeId == #{typeId,jdbcType=VARCHAR}
+            </if>
+            <if test="colourId != null">
+              and sc.colour_id == #{colourId,jdbcType=VARCHAR}
+            </if>
+            <if test="sizeId != null">
+              and sz.size_id == #{sizeId,jdbcType=VARCHAR}
+            </if>
+            <if test="createdStart != null">
+              and si.created &gt;= #{createdStart,jdbcType=VARCHAR}
+            </if>
+            <if test="createdEnd != null">
+              and si.created &lt;= #{createdEnd,jdbcType=VARCHAR}
+            </if>
+            <if test="reduceIntegralStart != null">
+              and si.reduce_integral  &gt; #{reduceIntegralStart,jdbcType=VARCHAR}
+            </if>
+            <if test="reduceIntegralEnd != null">
+              and si.reduce_integral &lt; #{reduceIntegralEnd,jdbcType=VARCHAR}
+            </if>
+        order by id desc
+
   </select>
 </mapper>

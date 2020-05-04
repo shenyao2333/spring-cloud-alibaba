@@ -1,14 +1,20 @@
 package com.sy.spring.cloud.alibaba.business.social.controller;
 
-import com.sy.spring.cloud.alibaba.business.social.domain.SocialImg;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.sy.spring.cloud.alibaba.business.social.domain.dto.AddHipakDto;
+import com.sy.spring.cloud.alibaba.business.social.domain.dto.GetHipakDto;
+import com.sy.spring.cloud.alibaba.business.social.domain.vo.SocialImgVo;
 import com.sy.spring.cloud.alibaba.business.social.service.SocialImgService;
 import com.sy.spring.cloud.alibaba.module.web.RespBean;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.io.File;
+import java.util.List;
 
 /**
  * @author sy
@@ -29,16 +35,25 @@ public class HiapkManageController  {
 
     @ApiOperation(value = "修改图片信息")
     @PostMapping("/addHiapkInfo")
-    public RespBean addHiapkInfo(@RequestBody SocialImg socialImg){
-        socialImgService.insert(socialImg);
+    public RespBean addHiapkInfo(@RequestBody AddHipakDto addHipakDto){
+        socialImgService.insert(addHipakDto);
         return RespBean.succeed();
     }
 
 
     @ApiOperation(value = "获取壁纸列表")
-    @PostMapping("/getHiapkList")
-    public RespBean getHiapkList(){
-        return null;
+    @PostMapping("/getHiapkListByParam")
+    @ApiImplicitParams({
+            @ApiImplicitParam(value = "页码",name = "page",paramType = "query"),
+            @ApiImplicitParam(value = "每页大小",name = "pageSize",paramType = "query")
+    })
+    public RespBean<PageInfo<SocialImgVo>> getHiapkList(@RequestBody GetHipakDto getHipakDto,Integer page,Integer pageSize){
+        page=page==null?1:page;
+        pageSize=pageSize==null?10:pageSize;
+        PageHelper.startPage(page,pageSize);
+        List<SocialImgVo> list = socialImgService.getHiapkListByParam(getHipakDto);
+        PageInfo<SocialImgVo> pageInfo = new PageInfo<SocialImgVo>(list);
+        return RespBean.succeed(pageInfo);
     }
 
 

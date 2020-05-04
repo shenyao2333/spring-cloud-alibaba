@@ -3,6 +3,8 @@ package com.sy.spring.cloud.alibaba.business.social.domain;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
+import java.util.Date;
+
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -72,6 +74,14 @@ public class SocialImg implements Serializable {
     */
     @ApiModelProperty(value="图片所有人的id")
     private String userId;
+
+    @ApiModelProperty(value="创建时间")
+    private Date created;
+
+
+    @ApiModelProperty(value="更新时间")
+    private Date updated;
+
 
     private static final long serialVersionUID = 1L;
 }

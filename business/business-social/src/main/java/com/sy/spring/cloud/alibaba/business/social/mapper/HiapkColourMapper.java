@@ -13,6 +13,8 @@ public interface HiapkColourMapper {
 
     List<HiapkColour> selectByAll(HiapkColour hiapkColour);
 
+    List<HiapkColour> select();
+
 
 
 

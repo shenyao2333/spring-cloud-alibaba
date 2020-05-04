@@ -34,4 +34,9 @@ public class HiapkColourServiceImpl implements HiapkColourService{
         return hiapkColourMapper.deleteById(id);
     }
 
+    @Override
+    public List<HiapkColour> select() {
+        return hiapkColourMapper.select();
+    }
+
 }

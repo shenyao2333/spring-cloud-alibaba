@@ -17,5 +17,5 @@ public interface HiapkColourService{
 
     int deleteById(Long id);
 
-
+    List<HiapkColour> select();
 }
