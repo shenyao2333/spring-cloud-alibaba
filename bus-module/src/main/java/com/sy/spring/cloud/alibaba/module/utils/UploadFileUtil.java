@@ -29,12 +29,12 @@ public class UploadFileUtil {
      */
     static String ENDPOINT = "oss-accelerate.aliyuncs.com";
 
-    static String accessKeyId = "LTAI4GL6UzaiiV7gsJcafTgK";
-    static String accessKeySecret = "PXWhibqBdS6yh9WYz4wmKnmtK8mnKj";
+    static String accessKeyId = "XXXXX";
+    static String accessKeySecret = "XXXXXX";
     /**
      * buck名
      */
-    static String BUCKETNAME="social-image";
+    static String BUCKETNAME="social-XXXX";
 
 
 
