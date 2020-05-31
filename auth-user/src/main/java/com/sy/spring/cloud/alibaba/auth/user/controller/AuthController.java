@@ -3,6 +3,7 @@ package com.sy.spring.cloud.alibaba.auth.user.controller;
 
 import com.sy.spring.cloud.alibaba.auth.user.domain.dto.AuthLoginDto;
 import com.sy.spring.cloud.alibaba.auth.user.domain.dto.RegisterUserDto;
+import com.sy.spring.cloud.alibaba.auth.user.domain.dto.UpdPasswordDto;
 import com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserLoginVo;
 import com.sy.spring.cloud.alibaba.auth.user.service.SelfUserDetailService;
 import com.sy.spring.cloud.alibaba.auth.user.service.UserInfoService;
@@ -102,6 +103,15 @@ public class AuthController {
         }
         userDetailService.getEmailCode(email);
         return RespBean.succeed("邮箱已发送");
+    }
+
+
+
+    @PostMapping("updPwd")
+    @ApiOperation(value = "修改密码")
+    public RespBean updPassword(@RequestBody UpdPasswordDto passwordDto){
+        userInfoService.updPasswordByDto(passwordDto);
+        return RespBean.succeed("修改成功");
     }
 
 

@@ -1,6 +1,8 @@
 package com.sy.spring.cloud.alibaba.auth.user.service.impl;
 
 import com.sy.spring.cloud.alibaba.auth.user.domain.dto.AuthLoginDto;
+import com.sy.spring.cloud.alibaba.auth.user.domain.dto.UpdPasswordDto;
+import com.sy.spring.cloud.alibaba.auth.user.domain.dto.UpdUserInfoDto;
 import com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserLoginVo;
 import com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserVo;
 import com.sy.spring.cloud.alibaba.module.allocation.GeneralEnum;
@@ -17,6 +19,9 @@ import javax.annotation.Resource;
 import com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo;
 import com.sy.spring.cloud.alibaba.auth.user.mapper.UserInfoMapper;
 import com.sy.spring.cloud.alibaba.auth.user.service.UserInfoService;
+
+import java.util.Date;
+
 @Service
 @Slf4j
 public class UserInfoServiceImpl implements UserInfoService{
@@ -66,7 +71,6 @@ public class UserInfoServiceImpl implements UserInfoService{
         UserInfo user = userInfoMapper.userLoginByEvidence(authLoginVo.getEvidence());
         BCryptPasswordEncoder bcryptPasswordEncoder =new BCryptPasswordEncoder();
 
-
         if (user!=null){
             if (!bcryptPasswordEncoder .matches(authLoginVo.getPassword(),user.getPassword())){
                 throw new GrabException(ErrorEnum.LONG_ERR);
@@ -101,6 +105,34 @@ public class UserInfoServiceImpl implements UserInfoService{
         return userInfoMapper.checkAcc(mobile,email,qq);
     }
 
+
+
+    @Override
+    public int updUserByDto(UpdUserInfoDto userInfoDto) {
+        UserInfo userInfo = new UserInfo();
+        BeanUtils.copyProperties(userInfoDto,userInfo);
+        userInfo.setUpdateTime(new Date());
+
+        return updateByPrimaryKeySelective(userInfo);
+    }
+
+    @Override
+    public int updPasswordByDto(UpdPasswordDto passwordDto) {
+        UserInfo userInfo = userInfoMapper.userLoginByEvidence(passwordDto.getEmail());
+        if (userInfo==null){
+            throw new GrabException(3001,"该账户不存在");
+        }
+        BCryptPasswordEncoder bcryptPasswordEncoder =new BCryptPasswordEncoder();
+
+        if (!bcryptPasswordEncoder .matches(passwordDto.getOldPassword(),userInfo.getPassword())){
+            throw new GrabException(3002,"旧密码错误");
+        }
+        UserInfo updInfo = new UserInfo();
+        updInfo.setId(userInfo.getId());
+        updInfo.setPassword(passwordDto.getNewPassword());
+        return updateByPrimaryKeySelective(updInfo);
+
+    }
 
 
 }

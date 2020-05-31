@@ -157,6 +157,11 @@
             <artifactId>aliyun-sdk-oss</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.aliyun.schedulerx</groupId>
+            <artifactId>schedulerx2-worker</artifactId>
+        </dependency>
+
 
     </dependencies>
 
@@ -168,8 +173,6 @@
                 <artifactId>spring-cloud-starter-gateway</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
-
-
         </dependencies>
     </dependencyManagement>
 

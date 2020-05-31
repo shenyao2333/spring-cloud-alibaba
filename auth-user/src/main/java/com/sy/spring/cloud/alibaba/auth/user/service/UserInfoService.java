@@ -1,6 +1,8 @@
 package com.sy.spring.cloud.alibaba.auth.user.service;
 
 import com.sy.spring.cloud.alibaba.auth.user.domain.dto.AuthLoginDto;
+import com.sy.spring.cloud.alibaba.auth.user.domain.dto.UpdPasswordDto;
+import com.sy.spring.cloud.alibaba.auth.user.domain.dto.UpdUserInfoDto;
 import com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserLoginVo;
 import com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserVo;
 import com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo;
@@ -49,4 +51,19 @@ public interface UserInfoService{
      * @return
      */
     String checkAcc(String mobile, String email, String qq);
+
+
+    /**
+     * 修改用户信息
+     * @param userInfoDto
+     * @return
+     */
+    int updUserByDto(UpdUserInfoDto userInfoDto);
+
+    /**
+     * 修改密码
+     * @param passwordDto
+     * @return
+     */
+    int updPasswordByDto(UpdPasswordDto passwordDto);
 }
