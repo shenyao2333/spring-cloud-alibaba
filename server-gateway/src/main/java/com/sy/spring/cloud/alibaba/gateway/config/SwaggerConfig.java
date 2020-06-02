@@ -1,3 +1,4 @@
+/*
 
 package com.sy.spring.cloud.alibaba.gateway.config;
 
@@ -19,11 +20,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebFlux;
 import java.util.List;
 
 
+*/
 /**
  * @author sy
  * @date Created in 2020.4.6 16:10
  * @description
- */
+ *//*
+
 @Configuration
 @EnableSwagger2WebFlux
 public class SwaggerConfig  {
@@ -44,23 +47,27 @@ public class SwaggerConfig  {
                 .build();
     }
 
+*/
 /*
     @Bean
     UiConfiguration uiConfig() {
         return new UiConfiguration(null, "list", "alpha", "schema", UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS,
                 false, true, 60000L);
     }
-*/
+*//*
 
 
-    /*@Override
+
+    */
+/*@Override
     public List<SwaggerResource> get() {
         List<SwaggerResource> resources = Lists.newArrayList();
         resources.add(swaggerResource("用户模块", "/auth-user/v2/api-docs", "1.0"));
         resources.add(swaggerResource("业务服务", "/api-tripartite/v2/api-docs", "1.0"));
         resources.add(swaggerResource("微信服务", "/api-wechat/v2/api-docs", "1.0"));
         return resources;
-    }*/
+    }*//*
+
 
     private SwaggerResource swaggerResource(String name, String location, String version) {
         SwaggerResource swaggerResource = new SwaggerResource();
@@ -75,3 +82,4 @@ public class SwaggerConfig  {
 
 }
 
+*/
