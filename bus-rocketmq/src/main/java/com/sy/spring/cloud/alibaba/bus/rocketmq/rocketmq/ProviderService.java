@@ -1,5 +1,7 @@
 package com.sy.spring.cloud.alibaba.bus.rocketmq.rocketmq;
 
+import org.apache.rocketmq.spring.support.RocketMQHeaders;
+import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
@@ -20,8 +22,17 @@ public class ProviderService {
 
 
     public void send(String message) {
-
+       // output.
         output.send(MessageBuilder.withPayload(message).build());
+    }
+
+    public String testCustomInterfaceSendMsg(String tage) {
+        Message<String> message = MessageBuilder.withPayload("send message")
+                .setHeader(RocketMQHeaders.TAGS, "tag2")
+                .setHeader("mytag", "my-tag")
+                .build();
+       // output
+        return "success";
     }
 
 
