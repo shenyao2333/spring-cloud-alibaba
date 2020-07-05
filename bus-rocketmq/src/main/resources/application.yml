@@ -1,17 +1,28 @@
 spring:
-  application:
-    name: rocketmq-provider
   cloud:
     stream:
+      bindings:
+        input1:
+          content-type: text/plain
+          destination: test-topic
+          group: test-group1
+        input2:
+          consumer:
+            concurrency: 20
+          content-type: text/plain
+          destination: test-topic
+          group: test-group2
+        output:
+          content-type: application/json
+          destination: test-topic
       rocketmq:
         binder:
-          # RocketMQ 服务器地址
-          namesrv-addr: 123.57.34.92:9876
-      bindings:
-        # 这里是个 Map 类型参数，{} 为 YAML 中 Map 的行内写法
-        output: {destination: test-topic, content-type: application/json}
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
+          name-server: 127.0.0.1:9876
+        bindings:
+          input1:
+            consumer:
+              orderly: true
+          input2:
+            consumer:
+              orderly: false
+              tags: tagStr

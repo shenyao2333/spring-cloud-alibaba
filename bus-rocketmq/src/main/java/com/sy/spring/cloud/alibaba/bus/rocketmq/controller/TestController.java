@@ -1,6 +1,7 @@
 package com.sy.spring.cloud.alibaba.bus.rocketmq.controller;
 
 import com.sy.spring.cloud.alibaba.bus.rocketmq.rocketmq.ProviderService;
+import com.sy.spring.cloud.alibaba.module.web.RespBean;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +24,9 @@ public class TestController {
 
 
     @GetMapping("/test")
-    public void test(){
+    public RespBean test(){
         providerService.send("hello rocket-mq");
+        return RespBean.succeed();
     }
 
 
