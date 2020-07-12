@@ -16,5 +16,15 @@
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>com.sy.cloud</groupId>
+            <artifactId>bus-module</artifactId>
+            <version>${version}</version>
+        </dependency>
+
+
+    </dependencies>
 
 </project>

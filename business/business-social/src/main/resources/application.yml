@@ -13,3 +13,8 @@
 #
 #       # shared-dataids: redis.yaml,mysql.yaml
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

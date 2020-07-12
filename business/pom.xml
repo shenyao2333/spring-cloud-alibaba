@@ -20,6 +20,7 @@
             <artifactId>bus-module</artifactId>
             <version>${parent.version}</version>
         </dependency>
+
     </dependencies>
 
 

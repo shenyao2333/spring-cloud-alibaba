@@ -24,6 +24,11 @@
             <version>${version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.sy.cloud</groupId>
+            <artifactId>bus-api</artifactId>
+            <version>0.0.1</version>
+        </dependency>
 
     </dependencies>
 

@@ -34,7 +34,7 @@
         <clj-http.version>3.9.1</clj-http.version>
         <jjwt.version>0.9.1</jjwt.version>
         <mail.version>1.4</mail.version>
-        <spring-cloud-openfeign-core.version>2.2.0.RELEASE</spring-cloud-openfeign-core.version>
+        <spring-cloud-openfeign-core.version>2.2.2.RELEASE</spring-cloud-openfeign-core.version>
         <schedulerx2-version>1.1.2.RELEASE</schedulerx2-version>
 
     </properties>
@@ -164,6 +164,13 @@
                 <version>${spring-cloud-openfeign-core.version}</version>
             </dependency>
 
+            <!--熔断 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>2.2.2.RELEASE</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
@@ -175,7 +182,6 @@
                 <artifactId>schedulerx2-worker</artifactId>
                 <version>${schedulerx2-version}</version>
             </dependency>
-
 
 
         </dependencies>
