@@ -8,7 +8,7 @@ import org.apache.dubbo.config.annotation.Service;
  * @date Created in 2020.7.12 16:44
  * @description
  */
-@Service
+@Service(protocol = "dubbo")
 public class TestDobboImpl implements TestDobbo {
 
 

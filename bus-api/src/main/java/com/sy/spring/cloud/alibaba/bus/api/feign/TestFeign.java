@@ -2,7 +2,10 @@ package com.sy.spring.cloud.alibaba.bus.api.feign;
 
 import com.sy.spring.cloud.alibaba.module.web.RespBean;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -14,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 //@FeignClient(value ="business-social",fallbackFactory = TestFeignFallbackFactory.class)
 public interface TestFeign {
 
-    @GetMapping("/api/testFeign")
-    RespBean testFeign(@RequestParam(value = "name") String name);
+    @RequestMapping(value="/api/testFeign", method= RequestMethod.GET)
+    RespBean testFeign(@RequestParam(value = "name", required = false) String name);
 
 }

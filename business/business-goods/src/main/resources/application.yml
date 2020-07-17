@@ -5,6 +5,9 @@ dubbo:
     dubbo:
       name: dubbo
       port: -1
+  # 关闭依赖关系
+  consumer:
+    check: true
   registry:
     address: spring-cloud://localhost
   cloud:
@@ -13,7 +16,6 @@ dubbo:
 feign:
   sentinel:
     enabled: true
-
 management:
   endpoints:
     web:
