@@ -83,6 +83,7 @@ public class RedisConfig extends CachingConfigurerSupport {
     private Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer() {
         Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(
                 Object.class);
+
         jackson2JsonRedisSerializer.setObjectMapper(objectMapper());
         return jackson2JsonRedisSerializer;
     }

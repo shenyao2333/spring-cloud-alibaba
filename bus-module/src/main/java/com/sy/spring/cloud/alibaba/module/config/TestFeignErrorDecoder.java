@@ -12,9 +12,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TestFeignErrorDecoder implements ErrorDecoder {
 
+
     @Override
     public Exception decode(String s, Response response) {
         System.out.println("错误了");
         return null;
     }
+
+
 }
