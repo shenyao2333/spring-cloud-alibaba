@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 //@FeignClient(value ="business-social",fallbackFactory = TestFeignFallbackFactory.class)
 public interface TestFeign {
 
-    @RequestMapping(value="/api/testFeign", method= RequestMethod.GET)
+    @GetMapping(value="/api/testFeign")
     RespBean testFeign(@RequestParam(value = "name", required = false) String name);
 
 }
