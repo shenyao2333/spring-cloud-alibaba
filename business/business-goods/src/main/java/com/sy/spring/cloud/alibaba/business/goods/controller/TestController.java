@@ -4,6 +4,7 @@ package com.sy.spring.cloud.alibaba.business.goods.controller;
 import com.sy.spring.cloud.alibaba.bus.api.feign.TestFeign;
 import com.sy.spring.cloud.alibaba.module.web.RespBean;
 import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,11 +22,11 @@ import javax.annotation.Resource;
 public class TestController {
 
 
-    @Resource
+    @Autowired
     private TestFeign testFeign;
 
 
-    @GetMapping("/testFeign")
+    @GetMapping("/test")
     public RespBean testFeign(String name){
         RespBean respBean = testFeign.testFeign(name);
         return respBean;

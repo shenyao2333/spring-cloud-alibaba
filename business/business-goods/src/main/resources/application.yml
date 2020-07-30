@@ -5,6 +5,8 @@ dubbo:
     dubbo:
       name: dubbo
       port: -1
+  protocol:
+    serialization: kryo
   # 关闭依赖关系
   consumer:
     check: true

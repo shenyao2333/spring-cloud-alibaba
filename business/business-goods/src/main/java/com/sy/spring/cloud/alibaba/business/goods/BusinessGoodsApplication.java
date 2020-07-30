@@ -22,7 +22,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @MapperScan(basePackages = "com.sy.spring.cloud.alibaba.business.goods.mapper")
 @ComponentScan(basePackages = {"com.sy.spring.cloud.alibaba.business.goods", "com.sy.spring.cloud.alibaba.module","com.sy.spring.cloud.alibaba.bus.api.feign"})
 @EnableCaching
-@EnableFeignClients(basePackages = "com.sy.spring.cloud.alibaba.bus.api.feign")
+@EnableFeignClients("com.sy.spring.cloud.alibaba.bus.api.feign")
 public class BusinessGoodsApplication {
 
     public static void main(String[] args) {
