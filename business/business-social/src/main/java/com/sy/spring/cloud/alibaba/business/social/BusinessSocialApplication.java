@@ -20,9 +20,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableDiscoveryClient
 @EnableAsync
 @MapperScan(basePackages = "com.sy.spring.cloud.alibaba.business.social.mapper")
-@ComponentScan(basePackages = {"com.sy.spring.cloud.alibaba.business.social", "com.sy.spring.cloud.alibaba.module" })
+@ComponentScan(basePackages = {"com.sy.spring.cloud.alibaba.business.social", "com.sy.spring.cloud.alibaba.module","com.sy.spring.cloud.alibaba.bus.api.feign" })
 @EnableCaching
-@EnableFeignClients("com.sy.spring.cloud.alibaba.bus.api.feign")
+@EnableFeignClients("com.sy.spring.cloud.alibaba.bus.api.feign.businessgoods")
 public class BusinessSocialApplication {
 
     public static void main(String[] args) {

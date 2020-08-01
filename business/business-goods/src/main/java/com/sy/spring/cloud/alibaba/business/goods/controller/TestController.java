@@ -1,15 +1,13 @@
 package com.sy.spring.cloud.alibaba.business.goods.controller;
 
 
-import com.sy.spring.cloud.alibaba.bus.api.feign.TestFeign;
+import com.sy.spring.cloud.alibaba.bus.api.feign.businesssocial.TestFeign;
 import com.sy.spring.cloud.alibaba.module.web.RespBean;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * @author sy

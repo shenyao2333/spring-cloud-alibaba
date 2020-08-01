@@ -235,6 +235,9 @@ public class RespBean<T> implements Serializable {
          * 第三方错误
          */
         public static final int EXTERN = 8000;
+
+
+        public static final int FEIGNFALL=9001;
     }
 
 

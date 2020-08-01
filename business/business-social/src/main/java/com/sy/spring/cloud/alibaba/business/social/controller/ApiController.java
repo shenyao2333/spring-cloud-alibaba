@@ -1,7 +1,7 @@
 package com.sy.spring.cloud.alibaba.business.social.controller;
 
 import com.sy.spring.cloud.alibaba.bus.api.dubbo.TestDobbo;
-import com.sy.spring.cloud.alibaba.bus.api.feign.TestFeign2;
+import com.sy.spring.cloud.alibaba.bus.api.feign.businessgoods.TestFeign2;
 import com.sy.spring.cloud.alibaba.business.social.service.ApiService;
 import com.sy.spring.cloud.alibaba.module.utils.UploadFileUtil;
 import com.sy.spring.cloud.alibaba.module.web.RespBean;
@@ -55,10 +55,11 @@ public class ApiController {
     }
 
 
-    @GetMapping("/test")
+    @GetMapping("/test2")
     public RespBean test2(){
         RespBean respBean = testFeign2.testFeign();
-        return RespBean.succeed(" : 成功");
+        System.out.println(respBean);
+        return respBean;
     }
 
 
