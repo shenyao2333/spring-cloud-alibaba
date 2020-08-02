@@ -13,3 +13,23 @@ feign:
     enabled: true
 
 
+spring:
+  cloud:
+    stream:
+      bindings:
+        input1:
+          content-type: text/plain
+          destination: test-topic
+          group: test-group1
+        input2:
+          consumer:
+            concurrency: 20
+          content-type: text/plain
+          destination: test-topic
+          group: test-group2
+        output:
+          content-type: application/json
+          destination: test-topic
+      rocketmq:
+        binder:
+          name-server: 123.57.34.92:9876
