@@ -6,7 +6,7 @@ spring:
           enabled: true
           lowerCaseServiceId: true
       routes:
-        - id: business-social
+        - id: businessSocial
           uri: lb://business-social
           # Predicate 翻译过来是“谓词”的意思，必须，主要作用是匹配用户的请求，有很多种用法
           predicates:
@@ -15,6 +15,14 @@ spring:
             - Path=/business-social/**
           filters:
             - StripPrefix=1
+            - name: RequestRateLimiter
+              args:
+                # 令牌桶每秒填充平均速率,即行等价于允许用户每秒处理多少个请求平均数
+                redis-rate-limiter.replenishRate: 1
+                # 令牌桶的容量，允许在一秒钟内完成的最大请求数
+                redis-rate-limiter.burstCapacity: 2
+                # 用于限流的键的解析器的 Bean 对象的名字。它使用 SpEL 表达式根据#{@beanName}从 Spring 容器中获取 Bean 对象。
+                key-resolver: "#{@apiKeyResolver}"
 # 配置日志级别，方别调试
 logging:
   level:

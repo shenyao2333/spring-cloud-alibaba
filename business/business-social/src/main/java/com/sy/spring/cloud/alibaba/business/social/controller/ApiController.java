@@ -7,6 +7,7 @@ import com.sy.spring.cloud.alibaba.module.utils.UploadFileUtil;
 import com.sy.spring.cloud.alibaba.module.web.RespBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * @author sy
@@ -23,6 +25,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/api")
 @Api(tags = "公用接口")
+@Slf4j
 public class ApiController {
 
     @Resource
@@ -50,8 +53,9 @@ public class ApiController {
     }
 
     @GetMapping("/testFeign")
-    public RespBean testFeign(){
-        return RespBean.succeed(" : 成功");
+    public RespBean testFeign(String name){
+        System.out.println("======>"+System.currentTimeMillis());
+        return RespBean.succeed(name+" : 成功");
     }
 
 
