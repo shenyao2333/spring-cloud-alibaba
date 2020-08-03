@@ -60,7 +60,6 @@ public class UploadFileUtil {
             //如果需要上传时设置存储类型与访问权限，请参考以下示例代码。
             String originalFilename = file.getOriginalFilename();
             name = originalFilename.substring(originalFilename.lastIndexOf("."));
-            System.out.println(name);
 
             ObjectMetadata metadata = new ObjectMetadata();
             metadata.setContentType(getcontentType(name));

@@ -5,13 +5,7 @@ import org.springframework.cloud.gateway.filter.ratelimit.KeyResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.IntConsumer;
 
 /**
  * @author sy
@@ -24,11 +18,10 @@ public class RequestRateLimiterConfig {
 
 
     @Bean
-   /* @Primary*/
-    KeyResolver apiKeyResolver() {
+    @Primary
+    public   KeyResolver apiKeyResolver() {
         //按URL限流,即以每秒内请求数按URL分组统计，超出限流的url请求都将返回429状态
         log.info("加载ip限流--");
-
         return   exchange -> Mono.just(exchange.getRequest().getPath().toString());
     }
 
