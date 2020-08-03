@@ -24,7 +24,7 @@ public class RequestRateLimiterConfig {
 
 
     @Bean
-    @Primary
+   /* @Primary*/
     KeyResolver apiKeyResolver() {
         //按URL限流,即以每秒内请求数按URL分组统计，超出限流的url请求都将返回429状态
         log.info("加载ip限流--");
@@ -33,7 +33,7 @@ public class RequestRateLimiterConfig {
     }
 
 
-    @Bean
+   /* @Bean
     KeyResolver userKeyResolver() {
         //按用户限流
         return exchange -> Mono.just(exchange.getRequest().getQueryParams().getFirst("user"));
@@ -43,7 +43,7 @@ public class RequestRateLimiterConfig {
     KeyResolver ipKeyResolver() {
         //按IP来限流
         return exchange -> Mono.just(exchange.getRequest().getRemoteAddress().getHostName());
-    }
+    }*/
 
 
 
