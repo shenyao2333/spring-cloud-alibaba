@@ -17,6 +17,8 @@ import java.io.Serializable;
 public class AuthLoginDto implements Serializable {
 
 
+
+
     private static final long serialVersionUID = 436620244711565502L;
 
 
