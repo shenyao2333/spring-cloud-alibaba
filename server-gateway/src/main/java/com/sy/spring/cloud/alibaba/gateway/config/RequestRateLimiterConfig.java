@@ -26,7 +26,7 @@ public class RequestRateLimiterConfig {
     }
 
 
-   /* @Bean
+    @Bean
     KeyResolver userKeyResolver() {
         //按用户限流
         return exchange -> Mono.just(exchange.getRequest().getQueryParams().getFirst("user"));
@@ -36,9 +36,19 @@ public class RequestRateLimiterConfig {
     KeyResolver ipKeyResolver() {
         //按IP来限流
         return exchange -> Mono.just(exchange.getRequest().getRemoteAddress().getHostName());
+    }
+
+    /*@Bean
+    public BlockRequestHandler blockRequestHandler() {
+        return new BlockRequestHandler() {
+            @Override
+            public Mono<ServerResponse> handleRequest(ServerWebExchange serverWebExchange, Throwable throwable) {
+                return ServerResponse.status(500)
+                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .body(BodyInserters.fromObject("您的请求被限流了"));
+            }
+        };
     }*/
-
-
 
 
 
