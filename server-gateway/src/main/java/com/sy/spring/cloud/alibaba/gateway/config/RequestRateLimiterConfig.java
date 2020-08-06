@@ -26,7 +26,7 @@ public class RequestRateLimiterConfig {
     }
 
 
-   /* @Bean
+    @Bean
     KeyResolver userKeyResolver() {
         //按用户限流
         return exchange -> Mono.just(exchange.getRequest().getQueryParams().getFirst("user"));
@@ -36,7 +36,7 @@ public class RequestRateLimiterConfig {
     KeyResolver ipKeyResolver() {
         //按IP来限流
         return exchange -> Mono.just(exchange.getRequest().getRemoteAddress().getHostName());
-    }*/
+    }
 
 
 
