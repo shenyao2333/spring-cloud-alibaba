@@ -6,20 +6,32 @@ spring:
           enabled: true
           lowerCaseServiceId: true
       routes:
-        - id: business
-          uri: http://127.0.0.1:10200
+        - id: business-social
+          uri: lb://business-social
           order: 0
           predicates:
             - Path=/business-social/**
           filters:
+            - SwaggerHeaderFilter
             - StripPrefix=1
-            - name: RequestRateLimiter
-              args:
-                # 令牌产生效率
-                redis-rate-limiter.replenishRate: 1
-                # 令牌桶的容量
-                redis-rate-limiter.burstCapacity: 2
-                key-resolver: "#{@apiKeyResolver}"
+#            - name: RequestRateLimiter
+#              args:
+#                # 令牌产生效率
+#                redis-rate-limiter.replenishRate: 1
+#                # 令牌桶的容量
+#                redis-rate-limiter.burstCapacity: 2
+#                key-resolver: "#{@apiKeyResolver}"
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 9999
+#      scg:
+#        fallback:
+#          mode: response
+#          response-status: 455
+#          response-body: error!
+      # 服务启动直接建立心跳连接
+      eager: true
 # 配置日志级别，方别调试
 logging:
   level:
