@@ -1,5 +1,6 @@
 package com.sy.spring.cloud.alibaba.gateway.config;
 
+import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.config.GatewayProperties;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import springfox.documentation.swagger.web.SwaggerResource;
 import springfox.documentation.swagger.web.SwaggerResourcesProvider;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,8 @@ import java.util.List;
 @Component
 @Primary
 @AllArgsConstructor
+/*@EnableSwagger2
+@EnableSwaggerBootstrapUI*/
 public class SwaggerProvider implements SwaggerResourcesProvider {
 
 
@@ -32,7 +36,14 @@ public class SwaggerProvider implements SwaggerResourcesProvider {
     @Override
     public List<SwaggerResource> get() {
         List<SwaggerResource> resources = new ArrayList<>();
-        List<String> routes = new ArrayList<>();
+
+        resources.add(swaggerResource("数据服务", "/business-social/v2/api-docs", "1.0"));
+        resources.add(swaggerResource("业务服务", "/api-tripartite/v2/api-docs", "1.0"));
+        return resources;
+
+
+
+       /* List<String> routes = new ArrayList<>();
         routeLocator.getRoutes().subscribe(route -> routes.add(route.getId()));
         gatewayProperties.getRoutes().stream().filter(routeDefinition -> routes.contains(routeDefinition.getId())).forEach(route -> {
             route.getPredicates().stream()
@@ -41,15 +52,24 @@ public class SwaggerProvider implements SwaggerResourcesProvider {
                             predicateDefinition.getArgs().get(NameUtils.GENERATED_NAME_PREFIX + "0")
                                     .replace("**", "v2/api-docs"))));
         });
-        return resources;
+        return resources;*/
     }
 
     private SwaggerResource swaggerResource(String name, String location) {
+
         log.info("name:{},location:{}",name,location);
         SwaggerResource swaggerResource = new SwaggerResource();
         swaggerResource.setName(name);
         swaggerResource.setLocation(location);
-        swaggerResource.setSwaggerVersion("2.0");
+        swaggerResource.setSwaggerVersion("1.0.0");
+        return swaggerResource;
+    }
+
+    private SwaggerResource swaggerResource(String name, String location, String version) {
+        SwaggerResource swaggerResource = new SwaggerResource();
+        swaggerResource.setName(name);
+        swaggerResource.setLocation(location);
+        swaggerResource.setSwaggerVersion(version);
         return swaggerResource;
     }
 }

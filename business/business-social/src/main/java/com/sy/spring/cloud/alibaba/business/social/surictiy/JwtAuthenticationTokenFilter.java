@@ -36,6 +36,12 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
+        String contextPath = httpServletRequest.getContextPath();
+        String requestURI = httpServletRequest.getRequestURI();
+        System.out.println(requestURI);
+        System.out.println(contextPath);
+        System.out.println(httpServletRequest.getRequestURL().toString());
+
         String token = JwtTokenUtil.resolveToken(httpServletRequest);
         if (token!=null){
             Map<Object, Object> hget = redisUtil.hget(token);

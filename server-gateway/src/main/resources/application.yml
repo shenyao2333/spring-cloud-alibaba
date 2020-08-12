@@ -12,8 +12,9 @@ spring:
           predicates:
             - Path=/business-social/**
           filters:
-            - SwaggerHeaderFilter
             - StripPrefix=1
+            #- SwaggerHeaderFilter
+
 #            - name: RequestRateLimiter
 #              args:
 #                # 令牌产生效率
@@ -38,3 +39,4 @@ logging:
     org.springframework.cloud.gateway: debug
 #server:
 #  port: 9010
+

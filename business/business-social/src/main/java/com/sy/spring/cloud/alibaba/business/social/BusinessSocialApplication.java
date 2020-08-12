@@ -1,5 +1,6 @@
 package com.sy.spring.cloud.alibaba.business.social;
 
+import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date Created in 2020.4.26 15:03
  * @description 启动类
  */
-@EnableSwagger2
+
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableAsync
