@@ -37,18 +37,11 @@
 
 
 
-
-
     <modules>
-        <module>bus-deperdencies</module>
-        <module>bus-module</module>
-        <module>auth-user</module>
-        <module>bus-api</module>
-        <module>server-gateway</module>
-        <module>bus-oss</module>
-        <module>bus-scheduler</module>
-        <module>bus-rocketmq</module>
-       <module>business</module>
+        <module>paascloud-deperdercies</module>
+        <module>paascloud-provider</module>
+        <module>paascloud-generator</module>
+        <module>paascloud-gateway</module>
     </modules>
 
     <properties>
@@ -73,17 +66,10 @@
         <dependencies>
             <dependency>
                 <groupId>com.sy.cloud</groupId>
-                <artifactId>bus-deperdencies</artifactId>
+                <artifactId>paascloud-deperdercies</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>
             </dependency>
-
-
-           <!-- <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-gateway</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>-->
 
         </dependencies>
 
