@@ -91,10 +91,10 @@
         </dependency>
 
         <!--feign负载均衡-->
-        <dependency>
+<!--        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!--nacos配置中心-->
         <dependency>

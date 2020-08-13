@@ -2,42 +2,61 @@
 # spring-cloud-alibaba
 ### 一、模块介绍
 
+#### 1、模块划分
+
+```
+├─spring-cloud-alibaba-------------------------------父项目
+│  │
+│  ├─paascloud-deperdercies--------------------------依赖管理
+│  │
+│  ├─paascloud-gateway-------------------------------微服务网关
+│  │
+│  ├─paascloud-business
+│  │  │
+│  │  ├─paascloud-business-user----------------------授权以及用户管理
+│  │  │
+│  │  ├─paascloud-business-goods---------------------商品模块
+│  │  │
+│  │  ├─paascloud-business-social--------------------社交模块
+│  │  │
+│  │  ├─paascloud-business-events--------------------活动中心
+│  │  │
+│  │  └─paascloud-business-thirdparty----------------第三方模块
+│  │  
+│  │
+│  ├─paascloud-provider
+│  │  │
+│  │  ├─paascloud-provider-basics-------------------基础模块
+│  │  │
+│  │  └─paascloud-provider-api----------------------公用API
+│  │
+│  │
+│  ├─paascloud-generator
+│  │  │
+│  │  ├─paascloud-generator-message-----------------消息中心
+│  │  │
+│  │  └─paascloud-generator-task--------------------定时任务，统一调度
+│  │  
+```
 
 
-| 模块                | 模块名     | 说明                           | rest端口 | dubbo端口 |
-| :------------------ | ---------- | ------------------------------ | -------- | --------- |
-| basics-deperdencies | 依赖管理   | 统一管理maven依赖版本号        |          |           |
-| bus-module          | 公共模块   | maven依赖、工具类以及配置类    |          |           |
-| bus-api             | 公共接口   | 共用接口声明，方便所有服务调用 |          |           |
-| server-gateway      | 网关       | 统一入口                       |          | 9510      |
-| bus-task            | 定时任务   | 定时任务处理，统一调度         | 9020     | 9520      |
-| bus-message         | 消息处理   | 服务与RocketMQ直接的处理       | 9030     | 9530      |
-|                     |            |                                |          |           |
-| auth-user           | 用户模块   | 用户管理与认证                 | 9040     | 9540      |
-| bus-thirdparty      | 第三方模块 | 业务中与第三方对接接口         | 9050     | 9550      |
-| business-goods      | 商品模块   | 商品管理                       |          |           |
-|                     |            |                                |          |           |
-|                     |            |                                |          |           |
 
 
 
-- 网：
-- 定时任务：bus-task   10
-- 公共接口：bus-api
-- 消息处理：bus-rocketmq
-- 公共模块：bus-module
-- 统一管理依赖：bus-deperdencies        
-- 用户模块：auth-user   
-- 第三方： bus-thirdparty
-- 业务business
-   - 商品：business-goods 
-     - rest：10200，dubbo：15200
-   - 社交：business-social 
-     - rest：10200，dubbo：15200
-   - 积分、等级、钱包 ：business-miscellaneous
-     -  rest：10200，dubbo：15200
-   - 活动、秒杀、优惠卷：business-passion
-     - est：10200，dubbo：15200
+| 模块                | 模块名             | 说明                           | rest端口 | dubbo端口 |
+| :------------------ | ------------------ | ------------------------------ | -------- | --------- |
+| deperdercies        | 依赖管理           | 统一管理maven依赖版本号        |          |           |
+| gateway             | 微服务网关         | maven依赖、工具类以及配置类    | 9010     |           |
+| business-user       | 授权以及用户管理   | 共用接口声明，方便所有服务调用 | 10020    | 9530      |
+| business-goods      | 商品模块           | 统一入口                       | 10030    | 9510      |
+| business-social     | 社交模块           | 定时任务处理，统一调度         | 10040    | 9520      |
+| business-events     | 活动中心           | 服务与RocketMQ直接的处理       | 10050    | 9530      |
+| business-thirdparty | 第三方模块         |                                | 10060    | 15060     |
+| provider-basics     | 基础模块           | 用户管理与认证                 |          |           |
+| provider-api        | 公用API            | 业务中与第三方对接接口         |          |           |
+| generator-message   | 消息中心           |                                | 10070    |           |
+| generator-task      | 定时任务，统一调度 |                                | 10080    |           |
+|                     |                    |                                |          |           |
 
 
 
