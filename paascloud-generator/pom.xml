@@ -4,12 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sy.cloud</groupId>
+
+    <parent>
+        <groupId>com.sy.cloud</groupId>
+        <artifactId>spring-cloud-alibaba</artifactId>
+        <version>0.0.1</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
     <artifactId>paascloud-generator</artifactId>
     <version>0.0.1</version>
 
 
-
+    <modules>
+        <module>paascloud-generator-message</module>
+        <module>paascloud-generator-task</module>
+    </modules>
 
 
 </project>

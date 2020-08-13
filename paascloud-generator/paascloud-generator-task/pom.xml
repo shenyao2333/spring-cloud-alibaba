@@ -7,9 +7,9 @@
 
     <parent>
         <groupId>com.sy.cloud</groupId>
-        <artifactId>spring-cloud-alibaba</artifactId>
+        <artifactId>paascloud-generator</artifactId>
         <version>0.0.1</version>
-        <relativePath>../../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
 
@@ -17,15 +17,11 @@
     <version>0.0.1</version>
 
     <dependencies>
-
         <dependency>
             <groupId>com.sy.cloud</groupId>
-            <artifactId>bus-module</artifactId>
-            <version>${version}</version>
+            <artifactId>paascloud-deperdercies</artifactId>
+            <type>pom</type>
         </dependency>
-
-
-
     </dependencies>
 
 

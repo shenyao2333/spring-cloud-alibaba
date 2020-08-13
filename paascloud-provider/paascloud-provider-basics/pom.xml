@@ -16,12 +16,7 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>com.sy.cloud</groupId>
-            <artifactId>paascloud-provider-basics</artifactId>
-            <type>pom</type>
-            <version>${version}</version>
-        </dependency>
+
 
 
     </dependencies>

@@ -17,23 +17,7 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>com.sy.cloud</groupId>
-            <artifactId>paascloud-deperdercies</artifactId>
-            <type>pom</type>
-        </dependency>
 
-        <dependency>
-            <groupId>com.sy.cloud</groupId>
-            <artifactId>paascloud-provider-api</artifactId>
-            <version>${version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.sy.cloud</groupId>
-            <artifactId>paascloud-provider-basics</artifactId>
-            <version>${version}</version>
-        </dependency>
 
     </dependencies>
 
@@ -44,5 +28,18 @@
         <module>paascloud-business-social</module>
         <module>paascloud-business-user</module>
     </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>${maven-deploy-plugin.version}</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

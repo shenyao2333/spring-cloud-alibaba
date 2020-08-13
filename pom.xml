@@ -41,6 +41,7 @@
         <module>paascloud-deperdercies</module>
         <module>paascloud-provider</module>
         <module>paascloud-generator</module>
+        <module>paascloud-business</module>
         <module>paascloud-gateway</module>
     </modules>
 
