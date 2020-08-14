@@ -1,8 +1,8 @@
 package com.sy.spring.cloud.alibaba.business.social.surictiy;
 
 import com.alibaba.fastjson.JSON;
-import com.sy.spring.cloud.alibaba.module.redis.RedisUtil;
-import com.sy.spring.cloud.alibaba.module.utils.JwtTokenUtil;
+import com.sy.spring.cloud.alibaba.provider.basic.redis.RedisUtil;
+import com.sy.spring.cloud.alibaba.provider.basic.utils.JwtTokenUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;

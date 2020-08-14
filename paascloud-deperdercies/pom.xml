@@ -20,8 +20,7 @@
     <properties>
         <java.version>1.8</java.version>
         <project.verson>0.0.1</project.verson>
-        <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
-        <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
+
         <fastjson.version>1.2.68</fastjson.version>
         <github.pagehelper.version>1.2.13</github.pagehelper.version>
         <lombok.version>1.18.8</lombok.version>
@@ -36,6 +35,8 @@
         <clj-http.version>3.9.1</clj-http.version>
         <jjwt.version>0.9.1</jjwt.version>
         <dubbo-kryo.version>2.7.2</dubbo-kryo.version>
+        <spring-cloud-starter-gateway>2.2.0.RELEASE</spring-cloud-starter-gateway>
+
     </properties>
 
     <dependencies>
@@ -89,23 +90,22 @@
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>-->
 
-        <!--nacos配置中心-->
+      <!--  &lt;!&ndash;nacos配置中心&ndash;&gt;
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
-        <!--和注册中心-->
+        &lt;!&ndash;和注册中心&ndash;&gt;
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!--dubbo通信-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-dubbo</artifactId>
         </dependency>
-
 
 
         <dependency>
@@ -134,11 +134,6 @@
         </dependency>
 
 
-        <!--日志、简化对象属性-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
 
 
         <!--前端api展示 开始-->
@@ -208,30 +203,17 @@
 
     </dependencies>
 
-
     <dependencyManagement>
         <dependencies>
-
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${spring-cloud-starter-gateway}</version>
             </dependency>
-
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring-cloud-alibaba.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-
         </dependencies>
-
     </dependencyManagement>
+
+
 
 
     <build>

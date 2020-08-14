@@ -1,7 +1,7 @@
 package com.sy.spring.cloud.alibaba.auth.user.mapper;
 
 import com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserVo;
-import com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo;
+import com.sy.spring.cloud.alibaba.provider.basic.domain.auth.UserInfo;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserInfoMapper {

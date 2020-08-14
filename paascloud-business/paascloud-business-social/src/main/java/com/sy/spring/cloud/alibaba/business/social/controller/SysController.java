@@ -2,7 +2,7 @@ package com.sy.spring.cloud.alibaba.business.social.controller;
 
 import com.sy.spring.cloud.alibaba.business.social.domain.BankingType;
 import com.sy.spring.cloud.alibaba.business.social.service.BankingTypeService;
-import com.sy.spring.cloud.alibaba.module.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -11,7 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>bus-rocketmq</artifactId>
+    <artifactId>paascloud-generator-message</artifactId>
     <version>0.0.1</version>
 
     <dependencies>

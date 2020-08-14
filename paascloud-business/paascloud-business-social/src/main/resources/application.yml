@@ -12,7 +12,6 @@ feign:
   sentinel:
     enabled: true
 
-
 spring:
   cloud:
     stream:

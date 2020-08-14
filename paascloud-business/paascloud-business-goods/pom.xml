@@ -18,23 +18,7 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.sy.cloud</groupId>
-            <artifactId>paascloud-deperdercies</artifactId>
-            <type>pom</type>
-        </dependency>
 
-        <dependency>
-            <groupId>com.sy.cloud</groupId>
-            <artifactId>paascloud-provider-basics</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.sy.cloud</groupId>
-            <artifactId>paascloud-provider-api</artifactId>
-            <version>0.0.1</version>
-        </dependency>
 
     </dependencies>
 
@@ -47,7 +31,7 @@
         <executions>
             <execution>
                 <goals>
-                    <goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中 -->
+                    <goal>repackage</goal>
                 </goals>
             </execution>
         </executions>

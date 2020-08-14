@@ -1,6 +1,6 @@
 package com.sy.spring.cloud.alibaba.auth.user.mapper;
 
-import com.sy.spring.cloud.alibaba.module.domain.auth.AuthRolePermission;
+import com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthRolePermission;
 
 public interface AuthRolePermissionMapper {
     int insert(AuthRolePermission record);

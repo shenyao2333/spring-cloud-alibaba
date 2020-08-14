@@ -5,7 +5,7 @@ import com.sy.spring.cloud.alibaba.auth.user.domain.dto.UpdPasswordDto;
 import com.sy.spring.cloud.alibaba.auth.user.domain.dto.UpdUserInfoDto;
 import com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserLoginVo;
 import com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserVo;
-import com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo;
+import com.sy.spring.cloud.alibaba.provider.basic.domain.auth.UserInfo;
 /**
  * @author sy
  *

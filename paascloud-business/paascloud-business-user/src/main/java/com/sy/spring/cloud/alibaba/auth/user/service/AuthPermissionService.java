@@ -1,5 +1,5 @@
 package com.sy.spring.cloud.alibaba.auth.user.service;
-import com.sy.spring.cloud.alibaba.module.domain.auth.AuthPermission;
+import com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthPermission;
 public interface AuthPermissionService{
 
 

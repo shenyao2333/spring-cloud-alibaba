@@ -1,6 +1,6 @@
 package com.sy.spring.cloud.alibaba.business.goods.dubbo;
 
-import com.sy.spring.cloud.alibaba.bus.api.dubbo.TestDobbo;
+import com.sy.spring.cloud.alibaba.provider.api.dubbo.TestDobbo;
 import org.apache.dubbo.config.annotation.Service;
 
 /**

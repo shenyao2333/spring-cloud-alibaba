@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sy.spring.cloud.alibaba.auth.user.mapper.AuthRolePermissionMapper">
-  <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.module.domain.auth.AuthRolePermission">
+  <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthRolePermission">
     <!--@mbg.generated-->
     <!--@Table auth_role_permission-->
     <id column="id" jdbcType="BIGINT" property="id" />
@@ -19,12 +19,12 @@
     from auth_role_permission
     where id = #{id,jdbcType=BIGINT}
   </select>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthRolePermission" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthRolePermission" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into auth_role_permission (role_id, permission_id)
     values (#{roleId,jdbcType=BIGINT}, #{permissionId,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthRolePermission" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthRolePermission" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into auth_role_permission
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -44,7 +44,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthRolePermission">
+  <update id="updateByPrimaryKeySelective" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthRolePermission">
     <!--@mbg.generated-->
     update auth_role_permission
     <set>
@@ -57,7 +57,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthRolePermission">
+  <update id="updateByPrimaryKey" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthRolePermission">
     <!--@mbg.generated-->
     update auth_role_permission
     set role_id = #{roleId,jdbcType=BIGINT},

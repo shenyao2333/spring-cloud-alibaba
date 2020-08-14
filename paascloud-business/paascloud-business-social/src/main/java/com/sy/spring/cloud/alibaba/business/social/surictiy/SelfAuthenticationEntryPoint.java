@@ -1,8 +1,8 @@
 package com.sy.spring.cloud.alibaba.business.social.surictiy;
 
 import com.alibaba.fastjson.JSONObject;
-import com.sy.spring.cloud.alibaba.module.redis.RedisUtil;
-import com.sy.spring.cloud.alibaba.module.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.redis.RedisUtil;
+import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;

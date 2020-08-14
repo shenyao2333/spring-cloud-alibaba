@@ -2,7 +2,7 @@ package com.sy.spring.cloud.alibaba.auth.user.controller;
 
 import com.sy.spring.cloud.alibaba.auth.user.domain.dto.UpdUserInfoDto;
 import com.sy.spring.cloud.alibaba.auth.user.service.UserInfoService;
-import com.sy.spring.cloud.alibaba.module.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;

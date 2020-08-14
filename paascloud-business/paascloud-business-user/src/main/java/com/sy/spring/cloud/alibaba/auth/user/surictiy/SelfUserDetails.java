@@ -1,6 +1,6 @@
 package com.sy.spring.cloud.alibaba.auth.user.surictiy;
 
-import com.sy.spring.cloud.alibaba.module.domain.auth.AuthRole;
+import com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthRole;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;

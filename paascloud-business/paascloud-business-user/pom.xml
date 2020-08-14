@@ -23,23 +23,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.sy.cloud</groupId>
-            <artifactId>paascloud-deperdercies</artifactId>
-            <type>pom</type>
-        </dependency>
 
-        <dependency>
-            <groupId>com.sy.cloud</groupId>
-            <artifactId>paascloud-provider-basics</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.sy.cloud</groupId>
-            <artifactId>paascloud-provider-api</artifactId>
-            <version>0.0.1</version>
-        </dependency>
 
     </dependencies>
     <build>

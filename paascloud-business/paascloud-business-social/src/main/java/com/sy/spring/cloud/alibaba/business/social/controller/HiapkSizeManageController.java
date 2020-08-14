@@ -1,10 +1,8 @@
 package com.sy.spring.cloud.alibaba.business.social.controller;
 
-import com.sy.spring.cloud.alibaba.business.social.domain.HiapkColour;
 import com.sy.spring.cloud.alibaba.business.social.domain.HiapkSize;
-import com.sy.spring.cloud.alibaba.business.social.domain.dto.SocialAddColourDto;
 import com.sy.spring.cloud.alibaba.business.social.service.HiapkSizeService;
-import com.sy.spring.cloud.alibaba.module.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;

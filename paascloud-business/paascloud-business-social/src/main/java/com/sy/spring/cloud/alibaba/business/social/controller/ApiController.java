@@ -1,10 +1,10 @@
 package com.sy.spring.cloud.alibaba.business.social.controller;
 
-import com.sy.spring.cloud.alibaba.bus.api.dubbo.TestDobbo;
-import com.sy.spring.cloud.alibaba.bus.api.feign.businessgoods.TestFeign2;
+import com.sy.spring.cloud.alibaba.provider.api.dubbo.TestDobbo;
+import com.sy.spring.cloud.alibaba.provider.api.feign.businessgoods.TestFeign2;
 import com.sy.spring.cloud.alibaba.business.social.service.ApiService;
-import com.sy.spring.cloud.alibaba.module.utils.UploadFileUtil;
-import com.sy.spring.cloud.alibaba.module.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.utils.UploadFileUtil;
+import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

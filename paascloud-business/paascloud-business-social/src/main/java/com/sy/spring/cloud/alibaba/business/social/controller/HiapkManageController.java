@@ -6,7 +6,7 @@ import com.sy.spring.cloud.alibaba.business.social.domain.dto.AddHipakDto;
 import com.sy.spring.cloud.alibaba.business.social.domain.dto.GetHipakDto;
 import com.sy.spring.cloud.alibaba.business.social.domain.vo.SocialImgVo;
 import com.sy.spring.cloud.alibaba.business.social.service.SocialImgService;
-import com.sy.spring.cloud.alibaba.module.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

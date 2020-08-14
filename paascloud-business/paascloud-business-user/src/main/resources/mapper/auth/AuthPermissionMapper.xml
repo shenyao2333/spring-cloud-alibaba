@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sy.spring.cloud.alibaba.auth.user.mapper.AuthPermissionMapper">
-  <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.module.domain.auth.AuthPermission">
+  <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthPermission">
     <!--@mbg.generated-->
     <!--@Table auth_permission-->
     <id column="id" jdbcType="BIGINT" property="id" />
@@ -24,7 +24,7 @@
     from auth_permission
     where id = #{id,jdbcType=BIGINT}
   </select>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthPermission" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthPermission" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into auth_permission (parent_id, `name`, enname,
       url, description, created,
@@ -33,7 +33,7 @@
       #{url,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP},
       #{updated,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthPermission" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthPermission" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into auth_permission
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -83,7 +83,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthPermission">
+  <update id="updateByPrimaryKeySelective" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthPermission">
     <!--@mbg.generated-->
     update auth_permission
     <set>
@@ -111,7 +111,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthPermission">
+  <update id="updateByPrimaryKey" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthPermission">
     <!--@mbg.generated-->
     update auth_permission
     set parent_id = #{parentId,jdbcType=BIGINT},

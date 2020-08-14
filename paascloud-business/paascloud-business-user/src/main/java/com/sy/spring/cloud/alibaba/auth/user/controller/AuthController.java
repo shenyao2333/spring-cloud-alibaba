@@ -7,8 +7,8 @@ import com.sy.spring.cloud.alibaba.auth.user.domain.dto.UpdPasswordDto;
 import com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserLoginVo;
 import com.sy.spring.cloud.alibaba.auth.user.service.SelfUserDetailService;
 import com.sy.spring.cloud.alibaba.auth.user.service.UserInfoService;
-import com.sy.spring.cloud.alibaba.module.utils.StringUtil;
-import com.sy.spring.cloud.alibaba.module.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.utils.StringUtil;
+import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.*;
 

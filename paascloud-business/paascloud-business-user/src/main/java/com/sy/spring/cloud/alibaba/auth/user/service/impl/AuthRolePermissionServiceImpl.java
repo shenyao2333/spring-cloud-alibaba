@@ -3,7 +3,7 @@ package com.sy.spring.cloud.alibaba.auth.user.service.impl;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.sy.spring.cloud.alibaba.auth.user.mapper.AuthRolePermissionMapper;
-import com.sy.spring.cloud.alibaba.module.domain.auth.AuthRolePermission;
+import com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthRolePermission;
 import com.sy.spring.cloud.alibaba.auth.user.service.AuthRolePermissionService;
 @Service
 public class AuthRolePermissionServiceImpl implements AuthRolePermissionService{

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sy.spring.cloud.alibaba.auth.user.mapper.AuthUserRoleMapper">
-  <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.module.domain.auth.AuthUserRole">
+  <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthUserRole">
     <!--@mbg.generated-->
     <!--@Table auth_user_role-->
     <id column="id" jdbcType="BIGINT" property="id" />
@@ -19,12 +19,12 @@
     from auth_user_role
     where id = #{id,jdbcType=BIGINT}
   </select>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthUserRole" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthUserRole" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into auth_user_role (user_id, role_id)
     values (#{userId,jdbcType=BIGINT}, #{roleId,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthUserRole" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthUserRole" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into auth_user_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -44,7 +44,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthUserRole">
+  <update id="updateByPrimaryKeySelective" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthUserRole">
     <!--@mbg.generated-->
     update auth_user_role
     <set>
@@ -57,7 +57,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.AuthUserRole">
+  <update id="updateByPrimaryKey" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthUserRole">
     <!--@mbg.generated-->
     update auth_user_role
     set user_id = #{userId,jdbcType=BIGINT},

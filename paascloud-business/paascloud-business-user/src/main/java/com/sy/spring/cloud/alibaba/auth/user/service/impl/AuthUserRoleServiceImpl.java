@@ -2,7 +2,7 @@ package com.sy.spring.cloud.alibaba.auth.user.service.impl;
 
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
-import com.sy.spring.cloud.alibaba.module.domain.auth.AuthUserRole;
+import com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthUserRole;
 import com.sy.spring.cloud.alibaba.auth.user.mapper.AuthUserRoleMapper;
 import com.sy.spring.cloud.alibaba.auth.user.service.AuthUserRoleService;
 @Service

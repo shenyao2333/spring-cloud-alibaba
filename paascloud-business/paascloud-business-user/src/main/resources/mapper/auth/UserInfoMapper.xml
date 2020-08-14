@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sy.spring.cloud.alibaba.auth.user.mapper.UserInfoMapper">
-  <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo">
+  <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.UserInfo">
     <!--@mbg.generated-->
     <!--@Table user_info-->
     <id column="id" jdbcType="BIGINT" property="id" />
@@ -55,7 +55,7 @@
     from user_info
     where id = #{id,jdbcType=BIGINT}
   </select>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.UserInfo" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into user_info (user_name, real_name, qq,
       wechat, email, mobile,
@@ -72,7 +72,7 @@
       #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR},
       #{address,jdbcType=VARCHAR}, #{status,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.UserInfo" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into user_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -200,7 +200,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.UserInfo">
     <!--@mbg.generated-->
     update user_info
     <set>
@@ -267,7 +267,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sy.spring.cloud.alibaba.module.domain.auth.UserInfo">
+  <update id="updateByPrimaryKey" parameterType="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.UserInfo">
     <!--@mbg.generated-->
     update user_info
     set user_name = #{userName,jdbcType=VARCHAR},

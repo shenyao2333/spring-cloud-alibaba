@@ -2,7 +2,7 @@ package com.sy.spring.cloud.alibaba.auth.user.service.impl;
 
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
-import com.sy.spring.cloud.alibaba.module.domain.auth.AuthPermission;
+import com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthPermission;
 import com.sy.spring.cloud.alibaba.auth.user.mapper.AuthPermissionMapper;
 import com.sy.spring.cloud.alibaba.auth.user.service.AuthPermissionService;
 @Service
