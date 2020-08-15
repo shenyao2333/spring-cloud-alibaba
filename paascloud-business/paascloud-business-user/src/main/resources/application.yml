@@ -13,3 +13,5 @@
 #
 #       # shared-dataids: redis.yaml,mysql.yaml
 
+server:
+  port:
