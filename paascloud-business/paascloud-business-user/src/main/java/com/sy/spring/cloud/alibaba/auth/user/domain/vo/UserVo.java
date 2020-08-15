@@ -20,7 +20,7 @@ public class UserVo implements Serializable {
      * 主键id
      */
     @ApiModelProperty(value="主键id")
-    private Long id;
+    private Integer id;
 
     /**
      * 使用名

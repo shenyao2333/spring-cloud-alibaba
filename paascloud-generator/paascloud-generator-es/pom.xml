@@ -13,9 +13,8 @@
     </parent>
 
 
-    <artifactId>paascloud-generator-task</artifactId>
+    <artifactId>paascloud-generator-es</artifactId>
     <version>0.0.1</version>
-
 
 
 

@@ -20,7 +20,28 @@
     <modules>
         <module>paascloud-generator-message</module>
         <module>paascloud-generator-task</module>
+        <module>paascloud-generator-es</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.sy.cloud</groupId>
+            <artifactId>paascloud-deperdercies</artifactId>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sy.cloud</groupId>
+            <artifactId>paascloud-provider-basics</artifactId>
+            <version>${version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sy.cloud</groupId>
+            <artifactId>paascloud-provider-api</artifactId>
+            <version>${version}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>
