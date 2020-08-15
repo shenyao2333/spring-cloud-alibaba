@@ -5,11 +5,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
+import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
 @ApiModel(value="userInfo")
 @Data
+@Document(indexName = "user_info", shards = 1,replicas = 0)
 public class UserInfo implements Serializable {
     /**
     * 主键id
