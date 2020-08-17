@@ -37,6 +37,8 @@
         <dubbo-kryo.version>2.7.2</dubbo-kryo.version>
         <spring-cloud-starter-gateway>2.2.0.RELEASE</spring-cloud-starter-gateway>
 
+
+
     </properties>
 
     <dependencies>
@@ -204,12 +206,18 @@
     </dependencies>
 
     <dependencyManagement>
+
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-gateway</artifactId>
                 <version>${spring-cloud-starter-gateway}</version>
             </dependency>
+
+
+           
+
+
         </dependencies>
     </dependencyManagement>
 

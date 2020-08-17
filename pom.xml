@@ -52,11 +52,17 @@
         <project.version>0.0.1</project.version>
         <sentinel.version>2.2.4.RELEASE</sentinel.version>
 
-
         <!--编码方式-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
+
+        <pdf-pdfbox.version>2.0.19</pdf-pdfbox.version>
+        <pdf-asian.version>5.2.0</pdf-asian.version>
+        <pdf-itextpdf.version>5.4.3</pdf-itextpdf.version>
+        <img-thumbnailator.version>0.4.12</img-thumbnailator.version>
+        <zxing-core.version>3.3.3</zxing-core.version>
+
+
 
     </properties>
 
@@ -115,6 +121,70 @@
 
     </dependencyManagement>
 
+
+
+    <repositories>
+        <repository>
+        <id>aliyun-repos</id>
+        <name>Aliyun Repository</name>
+        <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+    </repository>
+        <repository>
+        <id>sonatype-repos</id>
+        <name>Sonatype Repository</name>
+        <url>https://oss.sonatype.org/content/groups/public</url>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+    </repository><repository>
+        <id>sonatype-repos-s</id>
+        <name>Sonatype Repository</name>
+        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        <releases>
+            <enabled>false</enabled>
+        </releases>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository><repository>
+        <id>spring-snapshots</id>
+        <name>Spring Snapshots</name>
+        <url>https://repo.spring.io/snapshot</url>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository><repository>
+        <id>spring-milestones</id>
+        <name>Spring Milestones</name>
+        <url>https://repo.spring.io/milestone</url>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+    </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>aliyun-repos</id>
+            <name>Aliyun Repository</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 
 </project>

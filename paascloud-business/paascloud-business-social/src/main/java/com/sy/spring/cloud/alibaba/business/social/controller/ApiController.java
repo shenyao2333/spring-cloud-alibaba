@@ -3,7 +3,7 @@ package com.sy.spring.cloud.alibaba.business.social.controller;
 import com.sy.spring.cloud.alibaba.provider.api.dubbo.TestDobbo;
 import com.sy.spring.cloud.alibaba.provider.api.feign.businessgoods.TestFeign2;
 import com.sy.spring.cloud.alibaba.business.social.service.ApiService;
-import com.sy.spring.cloud.alibaba.provider.basic.utils.UploadFileUtil;
+import com.sy.spring.cloud.alibaba.provider.basic.utils.OSSFileUtil;
 import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -40,7 +40,7 @@ public class ApiController {
     @GetMapping("/test")
     @ApiOperation(value = "文件上传,返回图片路径")
     public RespBean uploadFile(MultipartFile file){
-        String s = UploadFileUtil.upload(file);
+        String s = OSSFileUtil.upload(file);
         return RespBean.succeed(s);
     }
 

@@ -23,12 +23,22 @@
 
 
     <dependencies>
+
+
         <dependency>
             <groupId>com.sy.cloud</groupId>
             <artifactId>paascloud-deperdercies</artifactId>
             <type>pom</type>
         </dependency>
+
+
+
+
     </dependencies>
+
+    <dependencyManagement>
+
+    </dependencyManagement>
 
 
     <build>

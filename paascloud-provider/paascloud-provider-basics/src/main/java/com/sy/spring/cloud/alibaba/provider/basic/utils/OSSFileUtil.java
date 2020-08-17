@@ -3,6 +3,7 @@ package com.sy.spring.cloud.alibaba.provider.basic.utils;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.model.*;
+import com.sy.spring.cloud.alibaba.provider.basic.web.GrabException;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -13,9 +14,11 @@ import java.util.Date;
 /**
  * @author sy
  * @date Created in 2020.4.25 23:17
- * @description 上传图片
+ * @description oss上传图片
  */
-public class UploadFileUtil {
+public class OSSFileUtil {
+
+
 
 
     /**
@@ -33,51 +36,78 @@ public class UploadFileUtil {
 
 
 
-
-    private static String getFileName(){
+    public static String getFileName(){
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
         return df.format(new Date())+ StringUtil.getRanString(15);
     }
 
+    public static String getFileNameBySuffix(String suffix){
+        suffix=suffix.replace("\\.","");
+        SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
+        return df.format(new Date())+ StringUtil.getRanString(15)+"."+suffix;
+    }
 
 
-
-
-
-    public static String  upload(MultipartFile file){
+    /**
+     *
+     * @param file 文件
+     * @param directory 目录
+     * @return
+     */
+    public static String  upload(MultipartFile file,String directory){
+        directory= directory!=null&&directory.trim().length()>0?directory+"/":"";
         OSS ossClient = new OSSClientBuilder().build(ENDPOINT, accessKeyId, accessKeySecret);
 
         // 创建PutObjectRequest对象。
         PutObjectRequest putObjectRequest =null;
         String name = "";
         try {
-            //如果需要上传时设置存储类型与访问权限，请参考以下示例代码。
             String originalFilename = file.getOriginalFilename();
             name = originalFilename.substring(originalFilename.lastIndexOf("."));
-
             ObjectMetadata metadata = new ObjectMetadata();
             metadata.setContentType(getcontentType(name));
             metadata.setObjectAcl(CannedAccessControlList.PublicRead);
             name = getFileName()+name;
 
-            putObjectRequest = new PutObjectRequest(BUCKETNAME, name,file.getInputStream());
+            putObjectRequest = new PutObjectRequest(BUCKETNAME,directory+ name,file.getInputStream());
             putObjectRequest.setMetadata(metadata);
-
-          //  String canonicalPath = putObjectRequest.getFile().getCanonicalPath();
-            //String canonicalPath = putObjectRequest.getFile().getCanonicalPath();
-           // System.out.println(canonicalPath);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        // 上传文件。
         ossClient.putObject(putObjectRequest);
-        // 关闭OSSClient。
         ossClient.shutdown();
 
-        return "http://" + BUCKETNAME + "." + ENDPOINT + "/" + name;
+        return "http://" + BUCKETNAME + "." + ENDPOINT + "/" + directory+name;
     }
+
+
+    /**
+     *
+     * @param inputStream 输入流
+     * @param directory 文件目录
+     * @param name 文件名
+     * @return
+     */
+    public static String  uploadByStream(InputStream inputStream,String directory,String name){
+        if (name==null||name.trim().length()<1){
+            throw  new GrabException(5002,"文件名不能为空");
+        }
+        directory= directory!=null&&directory.trim().length()>0?directory+"/":"";
+        OSS ossClient = new OSSClientBuilder().build(ENDPOINT, accessKeyId, accessKeySecret);
+        // 创建PutObjectRequest对象。
+        PutObjectRequest putObjectRequest =null;
+
+        ObjectMetadata metadata = new ObjectMetadata();
+        metadata.setContentType(getcontentType(name.substring(name.lastIndexOf("."))));
+        metadata.setObjectAcl(CannedAccessControlList.PublicRead);
+        putObjectRequest = new PutObjectRequest(BUCKETNAME,directory+ name,inputStream);
+        putObjectRequest.setMetadata(metadata);
+        ossClient.putObject(putObjectRequest);
+        ossClient.shutdown();
+        return "http://" + BUCKETNAME + "." + ENDPOINT + "/" + directory+name;
+    }
+
 
 
     /**
@@ -115,6 +145,9 @@ public class UploadFileUtil {
         }
         if (".xml".equalsIgnoreCase(filenameExtension)) {
             return "text/xml";
+        }
+        if (".pdf".equalsIgnoreCase(filenameExtension)){
+            return "application/pdf";
         }
         return "image/jpg";
     }
