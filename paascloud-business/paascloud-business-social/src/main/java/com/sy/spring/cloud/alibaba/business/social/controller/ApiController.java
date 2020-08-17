@@ -40,7 +40,7 @@ public class ApiController {
     @GetMapping("/test")
     @ApiOperation(value = "文件上传,返回图片路径")
     public RespBean uploadFile(MultipartFile file){
-        String s = OSSFileUtil.upload(file);
+        String s = OSSFileUtil.upload(file,null);
         return RespBean.succeed(s);
     }
 

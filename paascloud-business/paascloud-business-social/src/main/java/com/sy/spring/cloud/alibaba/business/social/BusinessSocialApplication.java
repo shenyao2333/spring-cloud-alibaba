@@ -19,7 +19,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableDiscoveryClient
 @EnableAsync
 @MapperScan(basePackages = "com.sy.spring.cloud.alibaba.business.social.mapper")
-@ComponentScan(basePackages = {"com.sy.spring.cloud.alibaba.business.social", "com.sy.spring.cloud.alibaba.provider.basic"})
+@ComponentScan(basePackages = {"com.sy.spring.cloud.alibaba.business.social", "com.sy.spring.cloud.alibaba.provider.basic","com.sy.spring.cloud.alibaba.provider.api.feign"})
 @EnableCaching
 @EnableFeignClients("com.sy.spring.cloud.alibaba.provider.api.feign")
 public class BusinessSocialApplication {

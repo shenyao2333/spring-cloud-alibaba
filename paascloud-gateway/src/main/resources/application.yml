@@ -13,8 +13,7 @@ spring:
             - Path=/business-social/**
           filters:
             - StripPrefix=1
-            #- SwaggerHeaderFilter
-
+            - SwaggerHeaderFilter
 #            - name: RequestRateLimiter
 #              args:
 #                # 令牌产生效率

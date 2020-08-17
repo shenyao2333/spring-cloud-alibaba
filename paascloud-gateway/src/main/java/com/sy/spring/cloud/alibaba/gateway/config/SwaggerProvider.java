@@ -13,7 +13,9 @@ import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author sy
@@ -33,26 +35,37 @@ public class SwaggerProvider implements SwaggerResourcesProvider {
     private final GatewayProperties gatewayProperties;
 
 
+    /**
+     * swagger2默认的url后缀SwaggerProvider
+     */
+    private static final String SWAGGER2URL = "/v2/api-docs";
+
+
     @Override
     public List<SwaggerResource> get() {
         List<SwaggerResource> resources = new ArrayList<>();
 
-        resources.add(swaggerResource("数据服务", "/business-social/v2/api-docs", "1.0"));
-        resources.add(swaggerResource("业务服务", "/api-tripartite/v2/api-docs", "1.0"));
-        return resources;
 
-
-
-       /* List<String> routes = new ArrayList<>();
-        routeLocator.getRoutes().subscribe(route -> routes.add(route.getId()));
-        gatewayProperties.getRoutes().stream().filter(routeDefinition -> routes.contains(routeDefinition.getId())).forEach(route -> {
-            route.getPredicates().stream()
-                    .filter(predicateDefinition -> ("Path").equalsIgnoreCase(predicateDefinition.getName()))
-                    .forEach(predicateDefinition -> resources.add(swaggerResource(route.getId(),
-                            predicateDefinition.getArgs().get(NameUtils.GENERATED_NAME_PREFIX + "0")
-                                    .replace("**", "v2/api-docs"))));
+        List<String> routeHosts = new ArrayList<>();
+        // 过滤不必要的模块。host转小写
+        routeLocator.getRoutes().filter(route -> route.getUri().getHost() != null)
+                .filter(route -> !"API-GATEWAY".equals(route.getUri().getHost()))
+                .filter(route -> !"ADMIN-SERVER".equals(route.getUri().getHost()))
+                .subscribe(route -> routeHosts.add(route.getUri().getHost().toLowerCase()));
+        Set<String> dealed = new HashSet<>();
+        routeHosts.forEach(instance -> {
+            // 拼接url
+            String url = "/" + instance + SWAGGER2URL;
+            log.info("加载的Url---->"+url);
+            if (!dealed.contains(url)) {
+                dealed.add(url);
+                SwaggerResource swaggerResource = new SwaggerResource();
+                swaggerResource.setUrl(url);
+                swaggerResource.setName(instance);
+                resources.add(swaggerResource);
+            }
         });
-        return resources;*/
+        return resources;
     }
 
     private SwaggerResource swaggerResource(String name, String location) {

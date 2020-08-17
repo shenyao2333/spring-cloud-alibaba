@@ -208,14 +208,14 @@
     <dependencyManagement>
 
         <dependencies>
-            <dependency>
+           <!-- <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-gateway</artifactId>
                 <version>${spring-cloud-starter-gateway}</version>
-            </dependency>
+            </dependency>-->
 
 
-           
+
 
 
         </dependencies>
