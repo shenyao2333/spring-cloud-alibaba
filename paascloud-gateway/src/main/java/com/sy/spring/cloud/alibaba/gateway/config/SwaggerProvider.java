@@ -44,27 +44,7 @@ public class SwaggerProvider implements SwaggerResourcesProvider {
     @Override
     public List<SwaggerResource> get() {
         List<SwaggerResource> resources = new ArrayList<>();
-
-
-        List<String> routeHosts = new ArrayList<>();
-        // 过滤不必要的模块。host转小写
-        routeLocator.getRoutes().filter(route -> route.getUri().getHost() != null)
-                .filter(route -> !"API-GATEWAY".equals(route.getUri().getHost()))
-                .filter(route -> !"ADMIN-SERVER".equals(route.getUri().getHost()))
-                .subscribe(route -> routeHosts.add(route.getUri().getHost().toLowerCase()));
-        Set<String> dealed = new HashSet<>();
-        routeHosts.forEach(instance -> {
-            // 拼接url
-            String url = "/" + instance + SWAGGER2URL;
-            log.info("加载的Url---->"+url);
-            if (!dealed.contains(url)) {
-                dealed.add(url);
-                SwaggerResource swaggerResource = new SwaggerResource();
-                swaggerResource.setUrl(url);
-                swaggerResource.setName(instance);
-                resources.add(swaggerResource);
-            }
-        });
+        resources.add(swaggerResource("社交","/business-social/v2/api-docs"));
         return resources;
     }
 

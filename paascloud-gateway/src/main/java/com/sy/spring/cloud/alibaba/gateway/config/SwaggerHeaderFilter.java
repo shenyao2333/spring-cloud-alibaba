@@ -1,5 +1,6 @@
 package com.sy.spring.cloud.alibaba.gateway.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -14,6 +15,7 @@ import springfox.documentation.swagger.web.SwaggerResourcesProvider;
  * @description swagger 相关配置
  */
 @Component
+@Slf4j
 public class SwaggerHeaderFilter  extends AbstractGatewayFilterFactory  {
 
     private static final String HEADER_NAME = "X-Forwarded-Prefix";
@@ -30,6 +32,7 @@ public class SwaggerHeaderFilter  extends AbstractGatewayFilterFactory  {
                 return chain.filter(exchange);
             }
             String basePath = path.substring(0, path.lastIndexOf(URI));
+            log.info("放过路径"+basePath);
             ServerHttpRequest newRequest = request.mutate().header(HEADER_NAME, basePath).build();
             ServerWebExchange newExchange = exchange.mutate().request(newRequest).build();
             return chain.filter(newExchange);

@@ -24,8 +24,9 @@
         </dependency>
 
 
+
         <!--  PDF -开始 -->
-        <dependency>
+       <dependency>
             <groupId>org.apache.pdfbox</groupId>
             <artifactId>pdfbox</artifactId>
             <version>${pdf-pdfbox.version}</version>
@@ -36,6 +37,7 @@
             <artifactId>itext-asian</artifactId>
             <version>${pdf-asian.version}</version>
         </dependency>
+
 
         <dependency>
             <groupId>com.itextpdf</groupId>
