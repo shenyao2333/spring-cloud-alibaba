@@ -26,43 +26,35 @@ import java.util.Set;
 @Component
 @Primary
 @AllArgsConstructor
-/*@EnableSwagger2
-@EnableSwaggerBootstrapUI*/
 public class SwaggerProvider implements SwaggerResourcesProvider {
 
-
-    private final RouteLocator routeLocator;
-    private final GatewayProperties gatewayProperties;
 
 
     /**
      * swagger2默认的url后缀SwaggerProvider
      */
-    private static final String SWAGGER2URL = "/v2/api-docs";
+    private static final String API_URI = "/v2/api-docs";
 
 
     @Override
     public List<SwaggerResource> get() {
         List<SwaggerResource> resources = new ArrayList<>();
-        resources.add(swaggerResource("社交","/business-social/v2/api-docs"));
+        resources.add(swaggerResource("社交模块","/business-social"));
+        resources.add(swaggerResource("商品模块","/"));
+        resources.add(swaggerResource("用户模块","/"));
+        resources.add(swaggerResource("第三方模块","/"));
+        resources.add(swaggerResource("任务模块","/"));
         return resources;
     }
 
     private SwaggerResource swaggerResource(String name, String location) {
-
         log.info("name:{},location:{}",name,location);
         SwaggerResource swaggerResource = new SwaggerResource();
         swaggerResource.setName(name);
-        swaggerResource.setLocation(location);
+        swaggerResource.setLocation(location+API_URI);
         swaggerResource.setSwaggerVersion("1.0.0");
         return swaggerResource;
     }
 
-    private SwaggerResource swaggerResource(String name, String location, String version) {
-        SwaggerResource swaggerResource = new SwaggerResource();
-        swaggerResource.setName(name);
-        swaggerResource.setLocation(location);
-        swaggerResource.setSwaggerVersion(version);
-        return swaggerResource;
-    }
+
 }
