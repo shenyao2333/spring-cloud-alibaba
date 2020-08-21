@@ -1,0 +1,30 @@
+dubbo:
+  scan:
+    base-packages: com.sy.spring.cloud.alibaba.generator.es.dubbo.service
+  protocols:
+    dubbo:
+      name: dubbo
+      # dubbo服务使用的端口号 从 20880 开始
+      port: -1
+  # 使用指定的高速序列化
+  protocol:
+    serialization: kryo
+  # 关闭依赖关系
+  consumer:
+    check: true
+  # 将dubbo注册到SpringCloud里
+  registry:
+    address: spring-cloud://localhost
+  cloud:
+    # 需要调用的服务的名字
+    subscribed-services: businessGoodsDubbo
+
+feign:
+  sentinel:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
