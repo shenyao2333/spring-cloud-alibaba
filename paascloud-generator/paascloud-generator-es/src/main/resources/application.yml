@@ -6,6 +6,10 @@ dubbo:
       name: dubbo
       # dubbo服务使用的端口号 从 20880 开始
       port: -1
+#    rest:
+#      name: rest
+#      port: 9092
+#      server: netty
   # 使用指定的高速序列化
   protocol:
     serialization: kryo

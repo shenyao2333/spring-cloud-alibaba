@@ -19,7 +19,7 @@ import javax.ws.rs.Path;
  * @description
  */
 @Path("/user")
-@Service(protocol = { "dubbo", "rest" })
+@Service(version = "1.0.0", protocol = { "dubbo" })
 public class UserInfoEsServiceImpl implements UserInfoEsService {
 
 

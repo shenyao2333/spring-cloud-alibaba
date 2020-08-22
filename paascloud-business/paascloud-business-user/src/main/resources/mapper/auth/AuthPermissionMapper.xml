@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sy.spring.cloud.alibaba.auth.user.mapper.AuthPermissionMapper">
+<mapper namespace="com.sy.spring.cloud.alibaba.business.user.mapper.AuthPermissionMapper">
   <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthPermission">
     <!--@mbg.generated-->
     <!--@Table auth_permission-->

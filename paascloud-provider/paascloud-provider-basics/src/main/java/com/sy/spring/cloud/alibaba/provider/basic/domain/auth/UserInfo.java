@@ -11,7 +11,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 
 @ApiModel(value="userInfo")
 @Data
-@Document(indexName = "user_info", shards = 1,replicas = 0)
+@Document(indexName = "user_info2", shards = 1,replicas = 0,type = "")
 public class UserInfo implements Serializable {
     /**
     * 主键id
