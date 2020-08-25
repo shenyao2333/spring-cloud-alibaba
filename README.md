@@ -60,6 +60,7 @@
 | generator-message   | 消息中心         | RocketMQ                   | 10060    | 15060     |
 | generator-task      | 定时任务         | 动态管理定时任务，统一调度 | 10070    | 15070     |
 | generator-activity  | 工作流           |                            | 10080    | 15080     |
+| generator-es        | 搜索引擎         |                            | 10090    | 15090     |
 
 
 
@@ -81,7 +82,7 @@
 
 #### 3、服务
 
-- 使用feign做restful风格的通信，以及使用ribbon做负载均衡，sentinel做熔断
+- 使用openfeign做restful风格的通信
 - 使用dubbo做服务直接的调用以及sentinel做熔断
 
 #### 4、数据
