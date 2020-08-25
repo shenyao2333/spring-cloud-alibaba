@@ -68,21 +68,7 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
 
-        <!--和注册中心-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
 
     </dependencies>
 
@@ -107,12 +93,6 @@
             </dependency>
 
 
-            <dependency>
-                <groupId>com.sy.cloud</groupId>
-                <artifactId>paascloud-deperdercies</artifactId>
-                <version>${project.version}</version>
-                <type>pom</type>
-            </dependency>
 
         </dependencies>
 

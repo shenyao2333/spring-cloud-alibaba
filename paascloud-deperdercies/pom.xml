@@ -92,22 +92,33 @@
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>-->
 
-      <!--  &lt;!&ndash;nacos配置中心&ndash;&gt;
+
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
-        &lt;!&ndash;和注册中心&ndash;&gt;
+
+        <!--和注册中心-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
 
         <!--dubbo通信-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-dubbo</artifactId>
         </dependency>
+<!--        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-dubbo-sample-api</artifactId>
+            <version>2.2.1.BUILD-SNAPSHOT</version>
+        </dependency>-->
 
 
         <dependency>

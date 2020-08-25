@@ -20,8 +20,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableDiscoveryClient
 @EnableCaching
 @EnableSwagger2
-@MapperScan(basePackages = "com.sy.spring.cloud.alibaba.auth.user.mapper")
-@ComponentScan(basePackages = {"com.sy.spring.cloud.alibaba.provider.basic"})
+@MapperScan(basePackages = "com.sy.spring.cloud.alibaba.generator.es.mapper")
+@ComponentScan(basePackages = {"com.sy.spring.cloud.alibaba.generator.es","com.sy.spring.cloud.alibaba.provider.basic"})
 @EnableFeignClients("com.sy.spring.cloud.alibaba.provider.api.feign")
 public class GeneratorEsApplication {
 

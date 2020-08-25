@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sy.spring.cloud.alibaba.auth.user.mapper.UserInfoMapper">
+<mapper namespace="com.sy.spring.cloud.alibaba.business.user.mapper.UserInfoMapper">
   <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.UserInfo">
     <!--@mbg.generated-->
     <!--@Table user_info-->
@@ -27,7 +27,7 @@
     <result column="status" jdbcType="CHAR" property="status" />
   </resultMap>
 
-  <resultMap id="UserLogin" type="com.sy.spring.cloud.alibaba.auth.user.domain.vo.UserVo">
+  <resultMap id="UserLogin" type="com.sy.spring.cloud.alibaba.business.user.domain.vo.UserVo">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="real_name" jdbcType="VARCHAR" property="realName" />

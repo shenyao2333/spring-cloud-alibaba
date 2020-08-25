@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sy.spring.cloud.alibaba.auth.user.mapper.AuthRoleMapper">
+<mapper namespace="com.sy.spring.cloud.alibaba.business.user.mapper.AuthRoleMapper">
   <resultMap id="BaseResultMap" type="com.sy.spring.cloud.alibaba.provider.basic.domain.auth.AuthRole">
     <!--@mbg.generated-->
     <!--@Table auth_role-->
