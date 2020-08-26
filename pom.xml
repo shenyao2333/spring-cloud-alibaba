@@ -92,7 +92,12 @@
                 <scope>import</scope>
             </dependency>
 
-
+            <dependency>
+                <groupId>com.sy.cloud</groupId>
+                <artifactId>paascloud-deperdercies</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+            </dependency>
 
         </dependencies>
 
