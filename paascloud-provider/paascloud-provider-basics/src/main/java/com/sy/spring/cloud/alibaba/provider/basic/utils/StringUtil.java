@@ -18,7 +18,7 @@ import static org.springframework.util.ObjectUtils.isEmpty;
  * @date Created in 2020.4.4 20:47
  * @description String工具类
  */
-public class StringUtil {
+public class StringUtil extends org.apache.commons.lang3.StringUtils {
     private static final char SEPARATOR = '_';
     private static final String CHARSET = "UTF-8";
     private static String number="0123456789";
