@@ -2,7 +2,7 @@ package com.sy.spring.cloud.alibaba.business.social.controller;
 
 import com.sy.spring.cloud.alibaba.business.social.domain.BankingType;
 import com.sy.spring.cloud.alibaba.business.social.service.BankingTypeService;
-import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,9 +30,9 @@ public class SysController {
 
     @ApiOperation(value = "获取系统类型列表" )
     @GetMapping("/getSysType")
-    public RespBean<List<BankingType>> getSysType(Integer systemn){
+    public R<List<BankingType>> getSysType(Integer systemn){
         List<BankingType> bankingTypes = bankingTypeService.selectBySystemn(systemn);
-        return RespBean.succeed(bankingTypes);
+        return R.succeed(bankingTypes);
     }
 
 

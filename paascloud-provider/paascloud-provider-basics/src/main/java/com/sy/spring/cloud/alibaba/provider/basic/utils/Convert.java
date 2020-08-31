@@ -1,6 +1,8 @@
 package com.sy.spring.cloud.alibaba.provider.basic.utils;
 
-import com.ruoyi.common.core.utils.StringUtils;
+
+
+import io.micrometer.core.instrument.util.StringUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -752,17 +754,6 @@ public class Convert
         return toBigDecimal(value, null);
     }
 
-    /**
-     * 将对象转为字符串<br>
-     * 1、Byte数组和ByteBuffer会被转换为对应字符串的数组 2、对象数组会调用Arrays.toString方法
-     *
-     * @param obj 对象
-     * @return 字符串
-     */
-    public static String utf8Str(Object obj)
-    {
-        return str(obj, CharsetKit.CHARSET_UTF_8);
-    }
 
     /**
      * 将对象转为字符串<br>

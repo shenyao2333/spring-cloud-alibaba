@@ -2,7 +2,7 @@ package com.sy.spring.cloud.alibaba.business.goods.controller;
 
 
 import com.sy.spring.cloud.alibaba.provider.api.feign.businesssocial.TestFeign;
-import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.R;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,8 +25,8 @@ public class TestController {
 
 
     @GetMapping("/test")
-    public RespBean testFeign(String name){
-        RespBean respBean = testFeign.testFeign(name);
+    public R testFeign(String name){
+        R respBean = testFeign.testFeign(name);
         return respBean;
     }
 

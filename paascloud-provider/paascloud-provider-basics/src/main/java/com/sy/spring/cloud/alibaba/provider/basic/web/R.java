@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @Description 返回对象
  */
 @Data
-public class RespBean<T> implements Serializable {
+public class R<T> implements Serializable {
 
     private static final long serialVersionUID = -1949931234174289546L;
 
@@ -35,41 +35,41 @@ public class RespBean<T> implements Serializable {
 
 
 
-    public RespBean() {
+    public R() {
         super();
     }
 
-    public RespBean(Integer code) {
+    public R(Integer code) {
         super();
         this.code = code;
     }
 
-    public RespBean(Integer code, String message) {
+    public R(Integer code, String message) {
         super();
         this.code = code;
         this.message = message;
     }
 
-    public RespBean(Integer code, Throwable throwable) {
+    public R(Integer code, Throwable throwable) {
         super();
         this.code = code;
         this.message = throwable.getMessage();
     }
 
-    public RespBean(Integer code, T data) {
+    public R(Integer code, T data) {
         super();
         this.code = code;
         this.data = data;
     }
 
-    public RespBean(Integer code, String message, T data) {
+    public R(Integer code, String message, T data) {
         super();
         this.code = code;
         this.message = message;
         this.data = data;
     }
 
-    public RespBean(Integer code, String message, T data, boolean status) {
+    public R(Integer code, String message, T data, boolean status) {
         super();
         this.code = code;
         this.message = message;
@@ -79,7 +79,7 @@ public class RespBean<T> implements Serializable {
 
 
 
-    public RespBean(Integer code, boolean status, String message, T data) {
+    public R(Integer code, boolean status, String message, T data) {
         super();
         this.code = code;
         this.message = message;
@@ -109,7 +109,7 @@ public class RespBean<T> implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        RespBean<?> other = (RespBean<?>) obj;
+        R<?> other = (R<?>) obj;
         if (data == null) {
             if (other.data != null) {
                 return false;
@@ -136,35 +136,35 @@ public class RespBean<T> implements Serializable {
 
 
 
-    public  static <T> RespBean fail(Integer code, String msg){
-        return new RespBean<T>(code,false,msg ,null);
+    public  static <T> R fail(Integer code, String msg){
+        return new R<T>(code,false,msg ,null);
     }
 
 
-    public  static <T> RespBean fail(ErrorEnum errorEnum){
-        return new RespBean<T>(errorEnum.getCode(),false,errorEnum.getMsg(),null);
+    public  static <T> R fail(ErrorEnum errorEnum){
+        return new R<T>(errorEnum.getCode(),false,errorEnum.getMsg(),null);
     }
 
 
-    public  static <T> RespBean fail(){
-        return new RespBean<T>(ErrorEnum.SYS.getCode(),false,ErrorEnum.SYS.getMsg(),null);
+    public  static <T> R fail(){
+        return new R<T>(ErrorEnum.SYS.getCode(),false,ErrorEnum.SYS.getMsg(),null);
     }
 
 
-    public static <T> RespBean<T> fail(String msg){
-        return new RespBean<T>(CodeStatus.SYS,false,msg,null);
+    public static <T> R<T> fail(String msg){
+        return new R<T>(CodeStatus.SYS,false,msg,null);
     }
 
-    public static RespBean succeed(){
-        return new RespBean(ErrorEnum.SUCCEED.getCode(),true,null,null);
+    public static R succeed(){
+        return new R(ErrorEnum.SUCCEED.getCode(),true,null,null);
     }
 
-    public static <T> RespBean<T> succeed   (T data){
-        return new RespBean<T>(ErrorEnum.SUCCEED.getCode(),true,ErrorEnum.SUCCEED.getMsg(),data);
+    public static <T> R<T> succeed   (T data){
+        return new R<T>(ErrorEnum.SUCCEED.getCode(),true,ErrorEnum.SUCCEED.getMsg(),data);
     }
 
-    public static <T> RespBean<T> succeed(String msg,T data){
-        return new RespBean<T>(ErrorEnum.SUCCEED.getCode(),true,msg,data);
+    public static <T> R<T> succieed(String msg, T data){
+        return new R<T>(ErrorEnum.SUCCEED.getCode(),true,msg,data);
     }
 
     public static long getSerialVersionUID() {

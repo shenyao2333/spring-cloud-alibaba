@@ -17,7 +17,7 @@ import com.sy.spring.cloud.alibaba.provider.basic.utils.SendEmailUtil;
 import com.sy.spring.cloud.alibaba.provider.basic.utils.StringUtil;
 import com.sy.spring.cloud.alibaba.provider.basic.web.ErrorEnum;
 import com.sy.spring.cloud.alibaba.provider.basic.web.GrabException;
-import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.R;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -84,7 +84,7 @@ public class SelfUserDetailServiceImpl implements SelfUserDetailService {
         String ranNum = StringUtil.getRanNum(4);
         boolean code = YunSendPhoneMsg.getCode(GeneralEnum.YUN_CODE_TEMPLATEID.toString(), mobile, ranNum);
         if (!code){
-            throw new GrabException(RespBean.CodeStatus.EXTERN,"获取验证码错误");
+            throw new GrabException(R.CodeStatus.EXTERN,"获取验证码错误");
         }
         redisUtil.set("mobileCode-"+mobile,ranNum,GeneralEnum.CODE_VALID.valueLong);
     }
@@ -94,15 +94,15 @@ public class SelfUserDetailServiceImpl implements SelfUserDetailService {
         String email = userDto.getEmail();
         String cheMobiles = userInfoService.checkAcc(userDto.getMobile(), "", "");
         if(cheMobiles!=null){
-            throw new GrabException(RespBean.CodeStatus.REQUEST_PARAM,"该手机号已被注册使用");
+            throw new GrabException(R.CodeStatus.REQUEST_PARAM,"该手机号已被注册使用");
         }
         String cheEmail = userInfoService.checkAcc("", userDto.getEmail(), "");
         if (cheEmail!=null){
-            throw new GrabException(RespBean.CodeStatus.REQUEST_PARAM,"该邮箱已被注册使用");
+            throw new GrabException(R.CodeStatus.REQUEST_PARAM,"该邮箱已被注册使用");
         }
         Object o = redisUtil.get("emailCode-" + email);
         if (o==null||!o.toString().equals(userDto.getEmailCode())){
-            throw new GrabException(RespBean.CodeStatus.REQUEST_PARAM,"邮箱验证码错误");
+            throw new GrabException(R.CodeStatus.REQUEST_PARAM,"邮箱验证码错误");
         }
 
         UserInfo userInfo = new UserInfo();

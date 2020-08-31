@@ -10,7 +10,7 @@ import com.sy.spring.cloud.alibaba.provider.basic.redis.RedisUtil;
 import com.sy.spring.cloud.alibaba.provider.basic.utils.JwtTokenUtil;
 import com.sy.spring.cloud.alibaba.provider.basic.web.ErrorEnum;
 import com.sy.spring.cloud.alibaba.provider.basic.web.GrabException;
-import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -65,7 +65,7 @@ public class UserInfoServiceImpl implements UserInfoService{
     @Override
     public UserLoginVo userLoginByEvidence(AuthLoginDto authLoginVo) {
         if ("".equals(authLoginVo.getEvidence())|| "".equals(authLoginVo.getPassword())){
-            throw new GrabException(RespBean.CodeStatus.REQUEST,"请求输入帐号或密码");
+            throw new GrabException(R.CodeStatus.REQUEST,"请求输入帐号或密码");
         }
 
         UserInfo user = userInfoMapper.userLoginByEvidence(authLoginVo.getEvidence());

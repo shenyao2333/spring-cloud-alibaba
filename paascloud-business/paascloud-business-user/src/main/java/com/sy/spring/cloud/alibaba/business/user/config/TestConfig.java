@@ -1,5 +1,6 @@
 package com.sy.spring.cloud.alibaba.business.user.config;
 
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.util.AntPathMatcher;
 
 /**
@@ -13,10 +14,8 @@ public class TestConfig {
     public static void main(String[] args) {
 
         AntPathMatcher pathMatcher = new AntPathMatcher();
+        System.out.println(pathMatcher.match("/test/**", "/test/sdf"));
 
-        boolean match = pathMatcher.match("/test/*", "/test/sdf/uuf");
-
-        System.out.println(match);
 
     }
 }

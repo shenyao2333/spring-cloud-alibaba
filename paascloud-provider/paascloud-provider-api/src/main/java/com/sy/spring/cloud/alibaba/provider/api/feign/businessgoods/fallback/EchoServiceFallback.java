@@ -18,7 +18,7 @@ package com.sy.spring.cloud.alibaba.provider.api.feign.businessgoods.fallback;
 
 
 import com.sy.spring.cloud.alibaba.provider.api.feign.businessgoods.TestFeign2;
-import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.R;
 
 /**
  * @author lengleng
@@ -36,7 +36,7 @@ public class EchoServiceFallback implements TestFeign2 {
 
 
     @Override
-    public RespBean testFeign() {
-        return RespBean.fail(RespBean.CodeStatus.FEIGNFALL,throwable.getMessage());
+    public R testFeign() {
+        return R.fail(R.CodeStatus.FEIGNFALL,throwable.getMessage());
     }
 }

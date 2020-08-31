@@ -6,7 +6,7 @@ import com.sy.spring.cloud.alibaba.business.social.domain.dto.AddHipakDto;
 import com.sy.spring.cloud.alibaba.business.social.domain.dto.GetHipakDto;
 import com.sy.spring.cloud.alibaba.business.social.domain.vo.SocialImgVo;
 import com.sy.spring.cloud.alibaba.business.social.service.SocialImgService;
-import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -35,9 +35,9 @@ public class HiapkManageController  {
 
     @ApiOperation(value = "修改图片信息")
     @PostMapping("/addHiapkInfo")
-    public RespBean addHiapkInfo(@RequestBody AddHipakDto addHipakDto){
+    public R addHiapkInfo(@RequestBody AddHipakDto addHipakDto){
         socialImgService.insert(addHipakDto);
-        return RespBean.succeed();
+        return R.succeed();
     }
 
 
@@ -47,13 +47,13 @@ public class HiapkManageController  {
             @ApiImplicitParam(value = "页码",name = "page",paramType = "query"),
             @ApiImplicitParam(value = "每页大小",name = "pageSize",paramType = "query")
     })
-    public RespBean<PageInfo<SocialImgVo>> getHiapkList(@RequestBody GetHipakDto getHipakDto,Integer page,Integer pageSize){
+    public R<PageInfo<SocialImgVo>> getHiapkList(@RequestBody GetHipakDto getHipakDto, Integer page, Integer pageSize){
         page=page==null?1:page;
         pageSize=pageSize==null?10:pageSize;
         PageHelper.startPage(page,pageSize);
         List<SocialImgVo> list = socialImgService.getHiapkListByParam(getHipakDto);
         PageInfo<SocialImgVo> pageInfo = new PageInfo<SocialImgVo>(list);
-        return RespBean.succeed(pageInfo);
+        return R.succeed(pageInfo);
     }
 
 

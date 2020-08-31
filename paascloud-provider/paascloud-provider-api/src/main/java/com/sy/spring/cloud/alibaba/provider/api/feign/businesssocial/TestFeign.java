@@ -1,6 +1,6 @@
 package com.sy.spring.cloud.alibaba.provider.api.feign.businesssocial;
 
-import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.R;
 import org.springframework.cloud.openfeign.FeignClient;
 
 
@@ -16,6 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface TestFeign {
 
     @PostMapping("/api/testFeign2")
-    RespBean testFeign(@RequestParam(value = "name") String name);
+    R testFeign(@RequestParam(value = "name") String name);
 
 }

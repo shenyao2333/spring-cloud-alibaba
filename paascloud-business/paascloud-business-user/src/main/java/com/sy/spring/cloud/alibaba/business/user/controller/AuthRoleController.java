@@ -1,6 +1,6 @@
 package com.sy.spring.cloud.alibaba.business.user.controller;
 
-import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +22,7 @@ public class AuthRoleController  {
     @GetMapping("/addRole")
     @ApiOperation(value = "用户添加权限，未启用")
     public Object test(){
-        return RespBean.succeed("成功",123);
+        return R.succeed("成功",123);
     }
 
 

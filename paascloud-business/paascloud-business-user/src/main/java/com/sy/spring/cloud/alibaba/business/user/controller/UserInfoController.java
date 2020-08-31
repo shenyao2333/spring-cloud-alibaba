@@ -2,7 +2,7 @@ package com.sy.spring.cloud.alibaba.business.user.controller;
 
 import com.sy.spring.cloud.alibaba.business.user.domain.dto.UpdUserInfoDto;
 import com.sy.spring.cloud.alibaba.business.user.service.UserInfoService;
-import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,9 +30,9 @@ public class UserInfoController {
 
     @PostMapping("/updUserInfo")
     @ApiOperation(value = "修改用户信息")
-    public RespBean logout(@RequestBody @Valid UpdUserInfoDto userInfoDto){
+    public R logout(@RequestBody @Valid UpdUserInfoDto userInfoDto){
         int i = userInfoService.updUserByDto(userInfoDto);
-        return RespBean.succeed("修改成功");
+        return R.succeed("修改成功");
     }
 
 

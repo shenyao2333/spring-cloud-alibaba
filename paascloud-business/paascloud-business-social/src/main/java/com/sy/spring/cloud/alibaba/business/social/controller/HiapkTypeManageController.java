@@ -1,6 +1,6 @@
 package com.sy.spring.cloud.alibaba.business.social.controller;
 
-import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,14 +21,14 @@ public class HiapkTypeManageController {
 
     @PostMapping("getHiapkTypes")
     @ApiOperation(value = "获取壁纸类型系列表",notes = "可根据条件查询，传什么值就以该值做条件查询")
-    public RespBean getHiapk(){
+    public R getHiapk(){
        return null;
     }
 
     @PostMapping("addHiapkType")
     @ApiOperation(value = "添加壁纸类型",notes = "")
-    public RespBean addHiapkSize(){
-        return RespBean.succeed("添加成功");
+    public R addHiapkSize(){
+        return R.succeed("添加成功");
     }
 
 

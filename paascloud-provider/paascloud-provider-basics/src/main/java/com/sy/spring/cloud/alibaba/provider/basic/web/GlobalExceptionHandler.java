@@ -23,7 +23,7 @@ public class GlobalExceptionHandler  {
 
 
     @ExceptionHandler(value = {MethodArgumentNotValidException.class})
-    public <T> RespBean serviceException(MethodArgumentNotValidException ex) {
+    public <T> R serviceException(MethodArgumentNotValidException ex) {
         //获取参数校验错误集合
         List<FieldError> bindingResult = ex.getBindingResult().getFieldErrors();
         StringBuilder errorMessage = new StringBuilder();
@@ -31,7 +31,7 @@ public class GlobalExceptionHandler  {
             errorMessage.append(fieldError.getDefaultMessage()).append(";") ;
         }
         errorMessage.substring(errorMessage.length()-1);
-        return new  RespBean<T>(RespBean.CodeStatus.REQUEST_PARAM,false,errorMessage.toString(),null);
+        return new R<T>(R.CodeStatus.REQUEST_PARAM,false,errorMessage.toString(),null);
     }
 
 
@@ -41,9 +41,9 @@ public class GlobalExceptionHandler  {
      * @return
      */
     @ExceptionHandler(value = {TypeMismatchException.class})
-    public  RespBean serviceException(TypeMismatchException ex) {
+    public R serviceException(TypeMismatchException ex) {
         String  message = String.format("参数类型不匹配，类型应该为: %s", ex.getRequiredType());
-        return  RespBean.fail(RespBean.CodeStatus.REQUEST_PARAM,message);
+        return  R.fail(R.CodeStatus.REQUEST_PARAM,message);
     }
 
 
@@ -53,8 +53,8 @@ public class GlobalExceptionHandler  {
      * @return
      */
     @ExceptionHandler(value = {HttpRequestMethodNotSupportedException.class})
-    public  RespBean serviceException(HttpRequestMethodNotSupportedException ex, HttpServletRequest request) {
-        return RespBean.fail(RespBean.CodeStatus.REQUEST, "接口"+ request.getMethod()+"请求类型错误!");
+    public R serviceException(HttpRequestMethodNotSupportedException ex, HttpServletRequest request) {
+        return R.fail(R.CodeStatus.REQUEST, "接口"+ request.getMethod()+"请求类型错误!");
     }
 
     /**
@@ -63,8 +63,8 @@ public class GlobalExceptionHandler  {
      * @return
      */
     @ExceptionHandler(value = {DuplicateKeyException.class})
-    public  RespBean serviceException(DuplicateKeyException ex) {
-        return RespBean.fail(RespBean.CodeStatus.DATA, "索引重复");
+    public R serviceException(DuplicateKeyException ex) {
+        return R.fail(R.CodeStatus.DATA, "索引重复");
     }
 
     /**
@@ -73,8 +73,8 @@ public class GlobalExceptionHandler  {
      * @return
      */
     @ExceptionHandler(value = {SQLException.class})
-    public RespBean serviceException(SQLException ex) {
-        return RespBean.fail(RespBean.CodeStatus.DATA, "索引重复");
+    public R serviceException(SQLException ex) {
+        return R.fail(R.CodeStatus.DATA, "索引重复");
     }
 
 
@@ -84,8 +84,8 @@ public class GlobalExceptionHandler  {
      * @return
      */
     @ExceptionHandler(value = {GrabException.class})
-    public  RespBean serviceException(GrabException ex) {
-        return RespBean.fail(ex.getCode(), ex.getMsg());
+    public R serviceException(GrabException ex) {
+        return R.fail(ex.getCode(), ex.getMsg());
     }
 
 
@@ -94,9 +94,9 @@ public class GlobalExceptionHandler  {
      * @return
      */
     @ExceptionHandler(value = {Exception.class})
-    public  RespBean serviceException(Exception e) {
+    public R serviceException(Exception e) {
         e.printStackTrace();
-        return RespBean.fail(ErrorEnum.SYS);
+        return R.fail(ErrorEnum.SYS);
     }
 
 

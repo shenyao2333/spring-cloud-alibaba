@@ -1,7 +1,7 @@
 package com.sy.spring.cloud.alibaba.provider.api.feign.businessgoods;
 
 import com.sy.spring.cloud.alibaba.provider.api.feign.businessgoods.fallback.EchoServiceFallbackFactory;
-import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.R;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -15,6 +15,6 @@ public interface TestFeign2 {
 
 
     @GetMapping(path = "/api/testFeign")
-    RespBean testFeign();
+    R testFeign();
 
 }

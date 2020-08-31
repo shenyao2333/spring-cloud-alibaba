@@ -4,7 +4,7 @@ import com.sy.spring.cloud.alibaba.provider.api.dubbo.TestDobbo;
 import com.sy.spring.cloud.alibaba.provider.api.feign.businessgoods.TestFeign2;
 import com.sy.spring.cloud.alibaba.business.social.service.ApiService;
 import com.sy.spring.cloud.alibaba.provider.basic.utils.OSSFileUtil;
-import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -39,28 +39,28 @@ public class ApiController {
 
     @GetMapping("/test")
     @ApiOperation(value = "文件上传,返回图片路径")
-    public RespBean uploadFile(MultipartFile file){
+    public R uploadFile(MultipartFile file){
         String s = OSSFileUtil.upload(file,null);
-        return RespBean.succeed(s);
+        return R.succeed(s);
     }
 
 
 
     @GetMapping("/testDobbo")
-    public RespBean test(){
-        return RespBean.succeed(testDobbo.echo("生产者调用"));
+    public R test(){
+        return R.succeed(testDobbo.echo("生产者调用"));
     }
 
     @GetMapping("/testFeign")
-    public RespBean testFeign(String name){
+    public R testFeign(String name){
         System.out.println("======>"+System.currentTimeMillis());
-        return RespBean.succeed(name+" : 成功");
+        return R.succeed(name+" : 成功");
     }
 
 
     @GetMapping("/test2")
-    public RespBean test2(){
-        RespBean respBean = testFeign2.testFeign();
+    public R test2(){
+        R respBean = testFeign2.testFeign();
         System.out.println(respBean);
         return respBean;
     }

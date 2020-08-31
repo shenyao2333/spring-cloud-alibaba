@@ -2,10 +2,8 @@ package com.sy.spring.cloud.alibaba.generator.es.controller;
 
 import com.sy.spring.cloud.alibaba.provider.api.dubbo.generator.es.UserInfoEsService;
 import com.sy.spring.cloud.alibaba.provider.basic.domain.auth.UserInfo;
-import com.sy.spring.cloud.alibaba.provider.basic.web.RespBean;
+import com.sy.spring.cloud.alibaba.provider.basic.web.R;
 import io.swagger.annotations.Api;
-import org.apache.dubbo.config.annotation.Reference;
-import org.apache.dubbo.config.annotation.Service;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +29,7 @@ public class TestController {
 
 
     @GetMapping("/test")
-    public RespBean sdf(){
+    public R sdf(){
         UserInfo userInfo = new UserInfo();
         userInfo.setId(765);
         userInfo.setUserName("测试");
@@ -55,13 +53,13 @@ public class TestController {
         userInfo.setQq("234234234234");
         userInfoEsService.save(userInfo);
 
-        return RespBean.succeed("成功");
+        return R.succeed("成功");
     }
 
     @GetMapping("/getByKeyword")
-    public RespBean<Page<UserInfo>> get(@RequestParam(value = "keyword") String keyword){
+    public R<Page<UserInfo>> get(@RequestParam(value = "keyword") String keyword){
         Page<UserInfo> byKeyword = userInfoEsService.findByKeyword(keyword,0,10);
-        return RespBean.succeed(byKeyword);
+        return R.succeed(byKeyword);
     }
 
 
