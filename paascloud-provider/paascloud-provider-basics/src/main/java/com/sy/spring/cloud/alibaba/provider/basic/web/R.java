@@ -155,12 +155,20 @@ public class R<T> implements Serializable {
         return new R<T>(CodeStatus.SYS,false,msg,null);
     }
 
-    public static R succeed(){
-        return new R(ErrorEnum.SUCCEED.getCode(),true,null,null);
+    public static <T> R<T> succeed(){
+        return new R<T>(ErrorEnum.SUCCEED.getCode(),true,null,null);
+    }
+
+    public static <T> R<T> succeed(T data,String msg){
+        return new R<T>(ErrorEnum.SUCCEED.getCode(),true,msg,data);
     }
 
     public static <T> R<T> succeed   (T data){
         return new R<T>(ErrorEnum.SUCCEED.getCode(),true,ErrorEnum.SUCCEED.getMsg(),data);
+    }
+
+    public static <T> R<T> succeed   (String msg){
+        return new R<T>(ErrorEnum.SUCCEED.getCode(),true,msg,null);
     }
 
     public static <T> R<T> succieed(String msg, T data){

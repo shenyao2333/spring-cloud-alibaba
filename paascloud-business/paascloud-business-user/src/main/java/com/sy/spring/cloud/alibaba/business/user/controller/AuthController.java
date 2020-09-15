@@ -52,10 +52,10 @@ public class AuthController {
                 return R.fail("请求输入验证码");
             }
             userLoginVo = userDetailService.userLoginByCode(authLoginVo.getMobile(),authLoginVo.getCode());
-            return R.succeed("登陆成功",userLoginVo);
+            return R.succeed(userLoginVo,"登陆成功");
         }
         userLoginVo = userInfoService.userLoginByEvidence(authLoginVo);
-        return R.succeed("登陆成功",userLoginVo);
+        return R.succeed(userLoginVo,"登陆成功");
     }
 
 
@@ -79,7 +79,7 @@ public class AuthController {
     @ApiOperation(value = "注册个人信息",notes = "注册的认证方式选择邮箱验证码")
     public R testEmial(@RequestBody @Valid RegisterUserDto registerUserDto){
         UserLoginVo register = userDetailService.register(registerUserDto);
-        return R.succeed("注册成功",register);
+        return R.succeed(register,"注册成功");
     }
 
 

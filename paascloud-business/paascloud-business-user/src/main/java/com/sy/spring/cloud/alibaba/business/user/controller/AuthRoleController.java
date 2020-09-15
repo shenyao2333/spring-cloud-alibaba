@@ -22,7 +22,7 @@ public class AuthRoleController  {
     @GetMapping("/addRole")
     @ApiOperation(value = "用户添加权限，未启用")
     public Object test(){
-        return R.succeed("成功",123);
+        return R.succeed(123,"成功");
     }
 
 
