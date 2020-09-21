@@ -35,6 +35,8 @@ public class GlobalExceptionHandler  {
     }
 
 
+
+
     /**
      * 参数类型
      * @param ex
@@ -89,6 +91,8 @@ public class GlobalExceptionHandler  {
     }
 
 
+
+
     /**
      * 其他异常
      * @return
@@ -96,7 +100,7 @@ public class GlobalExceptionHandler  {
     @ExceptionHandler(value = {Exception.class})
     public R serviceException(Exception e) {
         e.printStackTrace();
-        return R.fail(ErrorEnum.SYS);
+        return R.fail(-1,e.getMessage());
     }
 
 

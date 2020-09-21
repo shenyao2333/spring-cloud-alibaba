@@ -159,6 +159,18 @@ public class R<T> implements Serializable {
         return new R<T>(ErrorEnum.SUCCEED.getCode(),true,null,null);
     }
 
+    public static <T> R<T> ok(){
+        return new R<T>(ErrorEnum.SUCCEED.getCode(),true,null,null);
+    }
+
+    public static <T> R<T> ok(String msg){
+        return new R<T>(ErrorEnum.SUCCEED.getCode(),true,msg,null);
+    }
+
+    public static <T> R<T> ok(T data){
+        return new R<T>(ErrorEnum.SUCCEED.getCode(),true,"处理成功",data);
+    }
+
     public static <T> R<T> succeed(T data,String msg){
         return new R<T>(ErrorEnum.SUCCEED.getCode(),true,msg,data);
     }
